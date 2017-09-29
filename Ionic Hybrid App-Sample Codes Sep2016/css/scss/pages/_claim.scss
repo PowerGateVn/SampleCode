@@ -1,0 +1,46 @@
+.claim-page{
+  .content-block{
+    margin: 5px 0;
+    .content{
+      font-size: 12px;
+      padding: 15px 30px;
+      text-align: center;
+      line-height: 15px;
+    }
+  }
+
+  .profile-card{
+    margin-top: 5px;
+  }
+
+  .footer-text{
+    font-size: 12px;
+    color: $grey-text;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    padding: 20px;
+    line-height: 15px;
+    margin-top: 20px;
+  }
+  @include exclude-phone{
+    .content-block{
+      margin: 10px 0;
+      .content{
+        font-size: 22px;
+        padding: 30px;
+        line-height: 26px;
+      }
+    }
+    .profile-card{
+      margin-top: 10px;
+    }
+
+    .footer-text{
+      font-size: 22px;
+      padding: 30px;
+      line-height: 26px;
+      margin-top: 30px;
+    }
+  }
+}

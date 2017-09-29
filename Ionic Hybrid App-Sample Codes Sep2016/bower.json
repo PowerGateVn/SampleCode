@@ -1,0 +1,22 @@
+{
+  "name": "AirFlights",
+  "version": "0.0.1",
+  "authors": [
+    "PowerGate Software"
+  ],
+  "description": "AirFlights app",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "ionic": "1.1.0",
+    "angular-resource": "1.4.7",
+    "angular-bootstrap": "~1.0.3"
+  },
+  "resolutions": {
+    "angular": ">= 1.0.8"
+  }
+}

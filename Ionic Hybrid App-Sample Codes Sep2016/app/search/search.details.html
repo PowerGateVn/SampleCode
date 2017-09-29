@@ -1,0 +1,491 @@
+﻿<ion-view view-title="Search Detail - Docotop" cache-view="false" class="search-details-page view-wrap" ng-controller="SearchDetailsCtrl as vm">
+    <ion-content class="relative-content">
+        <div class="search-result-details">
+
+            <!--<div class="profile-card" style="background:url({{vm.proDetailFull.prourl}}) no-repeat scroll center center; background-size: 100%">-->
+                <div class="profile-card" id="profile_card">
+
+                    <div class="bg-img"></div>
+                    <div class="avatar-container avt-details-page">
+                        <div class="avatar">
+                            <img src="{{vm.proDetailFull.imgurl}}" alt="avatar" onerror="this.onerror = null; this.src = 'img/noavatar.png';" />
+                        </div>
+                    </div>
+                    <div class="people-meta">
+                        <div class="details">
+                            <div class="main-details pt-details">
+                                <h3 class="people-name">{{vm.proDetailFull.first}} {{vm.proDetailFull.second}}</h3>
+                                <h4 class="people-title">{{vm.proDetailFull.spec}}</h4>
+                            </div>
+                            <span class="star-rating star-{{vm.proDetailFull.note_g}} people-rating"></span>
+                            <a ng-click="vm.viewRating()" class="user-badge" style="cursor: pointer">
+                                <span>Je note!</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="content">
+                <div class="links">
+                    <div class="row">
+                        <div class="col" style="cursor: pointer">
+                            <a ng-if="user.isPro == null" ng-click="vm.showPopupWarning()">
+                                <i class="link-icon icon-edit"></i>
+                                <span>Améliorer</span>
+                            </a>
+                            <a ng-if="user.isPro != null" ng-click="vm.viewParamedAdd()">
+                                <i class="link-icon icon-edit"></i>
+                                <span>Améliorer</span>
+                            </a>
+                        </div>
+                        <div class="col" uib-dropdown style="cursor: pointer">
+                            <a uib-dropdown-toggle ng-if="user == null" ng-click="vm.showPopupWarning()">
+                                <i class="link-icon icon-identification"></i>
+                                <span>C'est moi!</span>
+                            </a>
+                            <a uib-dropdown-toggle ng-if="user != null" ng-click="addMaskClass()">
+                                <i class="link-icon icon-identification"></i>
+                                <span>C'est moi!</span>
+                            </a>
+                            <div ng-show="user!=null" class="box-dropdown" uib-dropdown-menu ng-click="addMaskClass()">
+                                <div class="dropdown-content">
+                                    <p>Vous êtes le professionnel de santé dont il est question sur cette fiche.</p>
+                                    <a ng-click="vm.showClaim()" style="text-decoration: underline">Accéder au formulaire ></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" uib-dropdown style="cursor: pointer">
+                            <a uib-dropdown-toggle ng-if="user.isPro == null" ng-click="vm.showPopupWarning()">
+                                <i class="link-icon icon-save"></i>
+                                <span>Sauvegarder</span>
+                            </a>
+                            <a uib-dropdown-toggle ng-if="user.isPro != null" ng-click="vm.addNewParams(2)">
+                                <i class="link-icon icon-save"></i>
+                                <span>Sauvegarder</span>
+                            </a>
+                            <div ng-show="user!=null" class="box-dropdown" uib-dropdown-menu ng-click="addMaskClass()">
+                                <div class="dropdown-content">
+                                    <p>Cette fiche a bien été ajoutée à vos spécialistes</p>
+                                    <a href="#" ng-click="vm.viewParamedList()">Voir la liste de mes spécialistes ></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" uib-dropdown style="cursor: pointer">
+                            <a uib-dropdown-toggle ng-click="addMaskClass()">
+                                <i class="link-icon icon-share"></i>
+                                <span>Partager</span>
+                            </a>
+                            <div uib-dropdown-menu class="menu-dropdown" ng-click="addMaskClass()">
+                                <ul>
+                                    <li>
+                                        <a ng-click="vm.shareFacebook()">Partager sur Facebook</a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="vm.shareGoogle()">Partager sur Google+</a>
+                                    </li>
+                                    <li>
+                                        <a id="shareMail" ng-click="vm.shareEmail()">Envoyer par mail</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mask-overlay" ng-click="removeMaskClass()"></div>
+                    </div>
+                </div>
+
+                <div class="details-content">
+                    <div class="details-right">
+                        <div id="mapDetail" class="map" style="max-width: none; z-index: -1;"></div>
+                        <div class="list list-info">
+                            <a class="item item-icon-left" ng-click="vm.getDirections()">
+                                <i class="icon rouned-icon icon-location"></i>
+                                {{vm.proDetailFull.adrFull}}
+                                <span class="item-note">
+                                    Itinéraire >
+                                </span>
+                            </a>
+
+                            <div class="item item-divider"></div>
+
+                            <a class="item item-icon-left" ng-if="vm.isCordova" ng-href="tel: {{vm.proDetailFull.tel}}">
+                                <i class="icon rouned-icon icon-phone"></i>
+                                {{vm.proDetailFull.tel}}
+                                <span class="item-note">
+                                    Appeler >
+                                </span>
+                            </a>
+                            <a class="item item-icon-left" ng-if="vm.isCordova==false">
+                                <i class="icon rouned-icon icon-phone"></i>
+                                {{vm.proDetailFull.tel}}
+                                <!--<span class="item-note">
+                                    Appeler >
+                                </span>-->
+                            </a>
+                            <!--<a class="item item-icon-left" ng-if="!vm.isAndroid" id="contactProWithEmailByAndroid" href="{{vm.proDetailFull.mailto}}">
+                                <i class="icon rouned-icon icon-mail"></i>
+                                {{vm.proDetailFull.email}}
+                                <span class="item-note">
+                                    Contacter >
+                                </span>
+                            </a>-->
+                            <a class="item item-icon-left" id="contactProWithEmail" ng-click="vm.sendEmail()">
+                                <i class="icon rouned-icon icon-mail"></i>
+                                {{vm.proDetailFull.docemail}}
+                                <span class="item-note">
+                                    Contacter >
+                                </span>
+                            </a>
+                            <a id="gotoWebPro" class="item item-icon-left" href="{{vm.proDetailFull.url}}">
+                                <i class="icon rouned-icon icon-web"></i>
+                                {{vm.proDetailFull.url}}
+                                <span class="item-note">
+                                    Accéder >
+                                </span>
+                            </a>
+
+                            <div class="item item-divider"></div>
+
+                            <a class="item item-icon-left" href="#" ng-if="vm.proDetailFull.timeFormat1 != null && vm.proDetailFull.timeFormat1 != '0h00'">
+                                <i class="icon rouned-icon icon-clock"></i>
+                                Horaires : aujourd’hui, {{vm.proDetailFull.timeFormat1}} - {{vm.proDetailFull.timeFormat2}}
+                            </a>
+                            <a class="item item-icon-left" href="#" ng-if="vm.proDetailFull.timeFormat1 == null || vm.proDetailFull.timeFormat1 == '0h00'">
+                                <i class="icon rouned-icon icon-clock"></i>
+                                Horaires : aujourd’hui, Fermé
+                            </a>
+
+                        </div>
+                        <div class="sheet-rating-list visible-desktop2">
+                            <div class="row-rating row">
+                                <div class="col col-50">
+                                    <div class="rating-star-lt">
+                                        <span class="star-rating star-{{vm.proDetailFull.note_g}} reviewer-rating"></span>
+                                    </div>
+                                </div>
+                                <div class="col col-50">
+                                    <div class="text-lt">
+                                        Avis general
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-rating row">
+                                <div class="col col-50">
+                                    <div class="rating-star-lt">
+                                        <span class="star-rating star-{{vm.proDetailFull.note_d}} reviewer-rating"></span>
+                                    </div>
+                                </div>
+                                <div class="col col-50">
+                                    <div class="text-lt">
+                                        Disponibilité
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-rating row">
+                                <div class="col col-50">
+                                    <div class="rating-star-lt">
+                                        <span class="star-rating star-{{vm.proDetailFull.note_e}} reviewer-rating"></span>
+                                    </div>
+                                </div>
+                                <div class="col col-50">
+                                    <div class="text-lt">
+                                        Ecoute
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="button button-full button-orange visible-xs" ng-click="vm.viewRating()">
+                            Je donne mon avis !
+                        </button>
+                        <div class="rating-box-1 visible-xs" ng-click="vm.viewRating()">
+                            <div class="stars" id="ratebottom1" ng-click="vm.setStar(1)">
+                                <i class="star-rounded"></i>
+                            </div>
+                            <div class="stars" id="ratebottom2" ng-click="vm.setStar(2)">
+                                <i class="star-rounded"></i>
+                            </div>
+                            <div class="stars" id="ratebottom3" ng-click="vm.setStar(3)">
+                                <i class="star-rounded"></i>
+                            </div>
+                            <div class="stars" id="ratebottom4" ng-click="vm.setStar(4)">
+                                <i class="star-rounded"></i>
+                            </div>
+                            <div class="stars" id="ratebottom5" ng-click="vm.setStar(5)">
+                                <i class="star-rounded"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-left">
+                        <ion-scroll zooming="true" direction="y" style=" height
+                                    90vh" class="ipad-view ip">
+                            <div class="content-block block-reviewer" ng-if="vm.proDetailFull.advicesInfo.length > 0">
+                                <div class="block-title">Les avis</div>
+                                <div class="sheet-rating-list visible-mobile2">
+                                    <div class="row-rating row">
+                                        <div class="col col-50">
+                                            <div class="rating-star-lt">
+                                                <span class="star-rating star-{{vm.proDetailFull.note_g}} reviewer-rating"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col col-50">
+                                            <div class="text-lt">
+                                                Avis general
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-rating row">
+                                        <div class="col col-50">
+                                            <div class="rating-star-lt">
+                                                <span class="star-rating star-{{vm.proDetailFull.note_d}} reviewer-rating"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col col-50">
+                                            <div class="text-lt">
+                                                Disponibilité
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-rating row">
+                                        <div class="col col-50">
+                                            <div class="rating-star-lt">
+                                                <span class="star-rating star-{{vm.proDetailFull.note_e}} reviewer-rating"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col col-50">
+                                            <div class="text-lt">
+                                                Ecoute
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="reviewer-list list-lt">
+                                    <li ng-repeat="extra in vm.proDetailFull.advicesInfo">
+                                        <a class="review-item" ng-click="vm.viewReadMore(extra.id)">
+                                            <!--<div class="avatar-container">
+                                                <div class="avatar">
+                                                    <img src="{{extra.imgurl}}" alt="avatar" onerror="this.onerror = null; this.src='img/noavatar.png';" />
+                                                </div>
+                                            </div>-->
+                                            <div class="info">
+                                                <div class="review-image" ng-if="extra.pics">
+                                                    <img src="{{extra.pics.imgurl}}" title="{{extra.pics.xtrtxt}}">
+                                                </div>
+                                                <h2>{{extra.fullName}}</h2>
+                                                <p style="display: none">{{extra.note_g}}</p>
+                                                <span class="star-rating star-{{extra.note_g}} reviewer-rating"></span>
+                                                <p>{{extra.xtrct}}</p>
+                                                <div class="like-post">
+
+                                                    <div class="like-post-row">
+                                                        <a ng-click="vm.updateComment(1,$index)" class="icon">
+                                                            <img src="img/icon-like.png">
+                                                        </a>
+
+                                                        <div class="right-info">
+                                                            <p class="total-like center">{{extra.adv_u}}</p>
+
+                                                            <p class="desc">Avis utiles</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="like-post-row">
+                                                        <a ng-click="vm.updateComment(0,$index)" class="icon">
+                                                            <img src="img/icon-dislike.png">
+                                                        </a>
+
+                                                        <div class="right-info">
+                                                            <p class="total-like">{{extra.adv_n}}</p>
+
+                                                            <p class="desc">Avis pas utiles</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span ng-click="vm.viewReadMore(extra.id)" class="link" style="cursor: pointer">Lire la suite ></span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <!--<ion-infinite-scroll ng-if="vm.checkLoadMoreAdvices()" on-infinite="vm.loadMoreAdvices()"
+                                                             distance="1%">
+                                    </ion-infinite-scroll>-->
+                                </ul>
+                            </div>
+                            <div class="content-block block-reviewer" ng-if="vm.proDetailFull.advicesInfo.length == 0">
+                                <div class="block-title">Les avis</div>
+                                <ul class="reviewer-list">
+                                    <li>
+                                        <p style="padding-left: 10%; padding-right: 10%">Il n’y a aucun avis pour ce spécialiste, soyez le premier à écrire votre avis !</p>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </ion-scroll>
+                        <div class="desktop-and-phone-view-search-details">
+                            <div class="content-block block-reviewer" ng-if="vm.proDetailFull.advicesInfo.length > 0">
+                                <div class="block-title">Les avis</div>
+                                <div class="sheet-rating-list visible-mobile2">
+                                    <div class="row-rating row">
+                                        <div class="col col-50">
+                                            <div class="rating-star-lt">
+                                                <span class="star-rating star-{{vm.proDetailFull.note_g}} reviewer-rating"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col col-50">
+                                            <div class="text-lt">
+                                                Avis general
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-rating row">
+                                        <div class="col col-50">
+                                            <div class="rating-star-lt">
+                                                <span class="star-rating star-{{vm.proDetailFull.note_d}} reviewer-rating"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col col-50">
+                                            <div class="text-lt">
+                                                Disponibilité
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-rating row">
+                                        <div class="col col-50">
+                                            <div class="rating-star-lt">
+                                                <span class="star-rating star-{{vm.proDetailFull.note_e}} reviewer-rating"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col col-50">
+                                            <div class="text-lt">
+                                                Ecoute
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="reviewer-list list-lt">
+                                    <li ng-repeat="extra in vm.proDetailFull.advicesInfo">
+                                        <a class="review-item" ng-click="vm.viewReadMore(extra.id)">
+                                            <!--<div class="avatar-container">
+                                                <div class="avatar">
+                                                    <img src="{{extra.imgurl}}" alt="avatar" onerror="this.onerror = null; this.src='img/noavatar.png';" />
+                                                </div>
+                                            </div>-->
+                                            <div class="info">
+                                                <div class="review-image" ng-if="extra.pics">
+                                                    <img src="{{extra.pics.imgurl}}" title="{{extra.pics.xtrtxt}}">
+                                                </div>
+                                                <h2>{{extra.fullName}}</h2>
+                                                <p style="display: none">{{extra.note_g}}</p>
+                                                <span class="star-rating star-{{extra.note_g}} reviewer-rating"></span>
+                                                <p>{{extra.xtrct}}</p>
+                                                <div class="like-post">
+
+                                                    <div class="like-post-row">
+                                                        <a ng-click="vm.updateComment(1,$index)" class="icon">
+                                                            <img src="img/icon-like.png">
+                                                        </a>
+
+                                                        <div class="right-info">
+                                                            <p class="total-like center">{{extra.adv_u}}</p>
+
+                                                            <p class="desc">Avis utiles</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="like-post-row">
+                                                        <a ng-click="vm.updateComment(0,$index)" class="icon">
+                                                            <img src="img/icon-dislike.png">
+                                                        </a>
+
+                                                        <div class="right-info">
+                                                            <p class="total-like">{{extra.adv_n}}</p>
+
+                                                            <p class="desc">Avis pas utiles</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span ng-click="vm.viewReadMore(extra.id)" class="link" style="cursor: pointer">Lire la suite ></span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <!--<ion-infinite-scroll ng-if="vm.checkLoadMoreAdvices()" on-infinite="vm.loadMoreAdvices()"
+                                                             distance="1%">
+                                    </ion-infinite-scroll>-->
+                                </ul>
+                            </div>
+                            <div class="content-block block-reviewer" ng-if="vm.proDetailFull.advicesInfo.length == 0">
+                                <div class="block-title">Les avis</div>
+                                <ul class="reviewer-list">
+                                    <li>
+                                        <p style="padding-left: 10%; padding-right: 10%">Il n’y a aucun avis pour ce spécialiste, soyez le premier à écrire votre avis !</p>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!--<div class="content-block block-photo">-->
+                        <!--<div class="block-title">Les photo</div>-->
+                        <!--<div class="photo-list">-->
+                        <!--<img src="img/02.jpg" class="img-fullwidth">-->
+                        <!--<img src="img/img1.JPG">-->
+                        <!--<a class="add-photo" ng-click="ShowCamera(1)">-->
+                        <!--<span class="add-icon">-->
+                        <!--<i class="icon ion-plus"></i>-->
+                        <!--</span>-->
+                        <!--<span class="add-text">Ajouter une photo</span>-->
+                        <!--</a>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <button class="button button-full footer-button button-orange hidden-mobile" ng-click="vm.viewRating()">
+                        DONNER MON AVIS
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+    <style>
+        .profile-card .people-meta .details .people-rating.star-0 {
+            background-position: 0px -110px;
+        }
+
+        .profile-card .people-meta .details .people-rating.star-1 {
+            background-position: 0 -88px;
+        }
+
+        .profile-card .people-meta .details .people-rating.star-2 {
+            background-position: 0 -65px;
+        }
+
+        .profile-card .people-meta .details .people-rating.star-3 {
+            background-position: 0 -44px;
+        }
+
+        .profile-card .people-meta .details .people-rating.star-4 {
+            background-position: 0 -23px;
+        }
+
+        @media (min-width: 640px) {
+            .profile-card .people-meta .details .people-rating.star-1 {
+                background-position: 0 -132px;
+            }
+
+            .profile-card .people-meta .details .people-rating.star-2 {
+                background-position: 0 -100px;
+            }
+
+            .profile-card .people-meta .details .people-rating.star-3 {
+                background-position: 0 -66px;
+            }
+
+            .profile-card .people-meta .details .people-rating.star-4 {
+                background-position: 0 -33px;
+            }
+
+            .profile-card .people-meta .details .people-rating.star-0 {
+                background-position: 0 -164px;
+            }
+        }
+    </style>
+</ion-view>

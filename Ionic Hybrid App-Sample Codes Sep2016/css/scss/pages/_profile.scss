@@ -1,0 +1,308 @@
+.profile-page{
+  .profile-card{
+    position: relative;
+    width: 100%;
+    z-index: 99;
+    top: 0;
+  }
+  .tabs{
+    top: 100px;
+  }
+  .has-tabs-top{
+    top: 149px;
+  }
+  .photo-box .add-photo-box{
+    img{
+      width: 45px;
+    }
+    &>a span{
+      @include calc(width, '100% - 60px');
+      padding-top: 4px;
+      float: right;
+    }
+  }
+  .photo-row{
+    padding: 10px 5px;
+  }
+  .item-divider{
+    min-height: 20px;
+  }
+
+  .tab-item{
+    background-color: #fff;
+    opacity: 1;
+    border-right: 1px solid $line-color;
+    &:last-child{
+      border-right: 0;
+    }
+    &.tab-item-active{
+      border-bottom: 2px solid $orange;
+    }
+    .tab-icon, .badge{
+      display: block;
+      margin: 0 auto;
+      height: 32px;
+      font-size: 22px;
+      line-height: 32px;
+      position: relative;
+    }
+    .badge{
+      position: relative;
+      top: 4%!important;
+      right: 0;
+      width: 100%;
+      background-color: transparent;
+      color: $deep-blue;
+      font-family: 'Lato';
+      font-weight: normal;
+    }
+  }
+  .more-link {
+    color: #a6a4a4;
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    padding: 30px 0;
+  }
+  @include exclude-phone{
+    .tabs{
+      top: 115px;
+      float: left;
+      width: 125px;
+      display: block;
+      @include calc(height, '100vh - 177px');
+      .tab-item{
+        height: 33%;
+        width: 100%;
+        padding-top: 40%;
+        border-right: none;
+        border-bottom: 2px solid $line-color!important;
+        &:last-child{
+          border-right: 0;
+          border-bottom: 0!important;
+        }
+        &.tab-item-active{
+          border-right: 2px solid $orange;
+          border-bottom: 0;
+        }
+        .tab-title{
+          font-size: 16px;
+        }
+        .tab-icon, .badge{
+          height: 55px;
+          font-size: 22px;
+          line-height: 32px;
+          position: relative;
+        }
+        .tab-icon.icon-profile{
+          background-size: auto 36px;
+          margin-bottom: 10px;
+        }
+        .badge{
+          top: 4%!important;
+          right: 0;
+          width: 100%;
+          font-size: 40px;
+        }
+      }
+    }
+    .has-tabs-top{
+      top: 115px;
+      padding-left: 124px;
+    }
+    .info-list-wrapper{
+      padding: 40px;
+    }
+    .header-photo-box{
+      position: absolute;
+      right: 32px;
+      top: 24px;
+      margin-top: 0;
+      z-index: 34;
+      .add-photo-box{ 
+        width: 260px;
+        height: 85px;
+        &>a {
+          span{
+            @include calc(width, '100% - 90px');
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    .more-link {
+      font-size: 22px;
+    }
+  }
+}
+.tab-icon{
+  &.icon-profile{
+    background: url(../img/icon_profile.png) no-repeat center 100%;
+    background-size: auto 24px;
+  }
+}
+
+.info-tab{
+  .button{
+    margin-top: 20px;
+  }
+}
+
+.search-box{
+  padding: 10px;
+  .input-search{
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    padding: 0 15px 0 60px;
+    color: $deep-blue;
+    font-size: 1em;
+    background: url(../img/icon_search.png) no-repeat center left 30px;
+    background-size: 20px;
+    background-color: #fff;
+  }
+  @include exclude-phone{
+    padding: 20px;
+    .input-search{
+      height: 50px;
+      width: 100%;
+      padding: 0 30px 0 100px;
+      font-size: 1.4em;
+      background: url(../img/icon_search.png) no-repeat center left 60px;
+      background-size: 25px;
+      background-color: #fff;
+    }
+  }
+}
+
+.setting-page{
+  .info-list .list{
+    margin-bottom: 40px;
+    .item:first-child{
+      margin-bottom: 2px;
+    }
+  }
+  .item-toggle{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-right: 60px;
+    .toggle{
+      top: 0;
+    }
+  }
+  .button{
+    margin: 0 0 40px 0;
+  }
+  @include exclude-phone{
+    .item-toggle{
+      top: 10px;
+    }
+    .button{
+      margin: 0 0 40px 0;
+    }
+  }
+}
+
+.create-pro-page{
+  .help-text{
+    font-size: 13px;
+    padding: 15px 15px 5px 15px;
+    line-height: 16px;
+  }
+  .readmore-link{
+    font-size: 14px;
+    display: inline-block;
+    width: 100%;
+    color: $grey-text;
+    text-decoration: underline;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .profile-card{
+    min-height: 100px;
+    margin-top: 5px;
+    .avatar-container{
+      padding: 16px 14px;
+    }
+    .people-meta .details {
+
+    }
+  }
+
+  .cover-photo{
+    width: 65px;
+    height: 65px;
+    margin: auto;
+    background-color: $light-blue;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .photo-box .add-photo-box{
+    img{
+      width: 45px;
+    }
+    &>a span{
+      @include calc(width, '100% - 60px');
+      padding-top: 4px;
+      float: right;
+    }
+  }
+  .photo-row{
+    padding: 10px 5px;
+  }
+
+  @include exclude-phone{
+    .help-text{
+      font-size: 22px;
+      padding: 25px;
+      line-height: 26px;
+    }
+    .readmore-link{
+      font-size: 22px;
+      padding: 20px;
+    }
+    .profile-card{
+      min-height: 132px;
+      margin-top: 10px;
+      .people-meta .details {
+        padding-top: 30px;
+        &.padding-top-clear{
+          padding-top: 0;
+        }
+      }
+
+    }
+
+    .avatar-container .avatar{
+      width: 100px;
+      height: 100px;
+    }
+
+    .cover-photo{
+      width: 100px;
+      height: 100px;
+    }
+    .photo-box .add-photo-box{
+      img{
+        width: 64px;
+      }
+      &>a span{
+        @include calc(width, '100% - 70px');
+        padding-top: 4px;
+        float: right;
+        font-size: 22px;
+      }
+    }
+    .photo-row{
+      padding: 20px 10px;
+    }
+  }
+}
+
+
+

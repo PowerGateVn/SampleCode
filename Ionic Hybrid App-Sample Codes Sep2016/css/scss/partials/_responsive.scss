@@ -1,0 +1,158 @@
+$phone-width: 480px;
+$tablet-width: 640px;
+$desktop-width: 1024px;
+$tablet-xs-height: 600px;
+
+@mixin exclude-phone{
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin only-phone {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin xs-tablet-portrait {
+  @media (max-height: #{$tablet-xs-height}) 
+    and (orientation: landscape) {
+      @content;
+    }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width + 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin landscape{
+  @media only screen 
+    and (orientation : landscape) {
+      @content;
+    } 
+}
+
+@mixin phone-landscape{
+  @media only screen 
+    and (min-device-width : 320px) 
+    and (max-device-width : 767px) 
+    and (orientation : landscape) {
+      @content;
+    }
+}
+
+@mixin ipad-landscape{
+  @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : landscape) {
+      @content;
+    }
+}
+
+@mixin ipad-portrait{
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : portrait) {
+    @content;
+  }
+}
+
+.visible-mobile{
+  @include desktop{
+    display: none;
+  }
+}
+
+.visible-desktop{
+  @include mobile{
+    display: none;
+  }
+}
+
+.visible-xs{
+  @include exclude-phone{
+    display: none!important;
+  }
+}
+
+.hidden-xs{
+  @include only-phone {
+    display: none
+  }
+}
+
+.hidden-desktop{
+  @include desktop {
+    display: none
+  }
+}
+
+.platform-ios:not(.fullscreen):not(.platform-browser) .menu-content .bar-header:not(.bar-subheader){
+  top: -20px;
+  @include mobile{
+    &.bar-mobile{
+      height: 78px;
+      padding-top: 20px;
+    }
+  }
+  @include tablet{
+    &.bar-mobile{
+      height: 82px;
+    }
+  }
+
+}
+
+.platform-ios:not(.fullscreen):not(.platform-browser){
+  @include mobile{
+    .back-button{
+      top: -20px;
+    }
+  }
+
+  @include tablet{
+    .page-content.has-header {
+      top: 74px;
+    }
+    .search-details-page{
+      top: 16px;
+    }
+    .search-result-page .main-content{
+      top: 6px;
+    }
+  }
+
+  @include only-phone{
+    .search-page .header{
+      padding-left: 30px;
+    }
+    .search-result-page{
+      .header{
+        margin-top: 14px;
+      }
+      .page-content.has-header{
+        margin-top: 150px;
+      }
+    }
+    .search-result-details{
+      margin-top: 10px;
+    }
+  }
+}

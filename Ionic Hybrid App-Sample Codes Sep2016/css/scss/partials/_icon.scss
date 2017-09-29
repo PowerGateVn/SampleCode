@@ -1,0 +1,88 @@
+.sidebar-icon{
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  position: absolute;
+  right: 24px;
+  top: 10px;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-weight: 300;
+  &.icon-search{
+    background-image: url(../img/sidebar/icon_search.png);
+  }
+  &.icon-login{
+    background-image: url(../img/sidebar/icon_login.png);
+  }
+  &.icon-signup{
+    background-image: url(../img/sidebar/icon_signup.png);
+  }
+  &.icon-profile{
+    background-image: url(../img/sidebar/icon_profile.png);
+  }
+  &.icon-list{
+    background-image: url(../img/sidebar/icon_list.png);
+  }
+  &.icon-add{
+    background-image: url(../img/sidebar/icon_add.png);
+  }
+  &.icon-config{
+    background-image: url(../img/sidebar/icon_config.png);
+  }
+  &.icon-sheet{
+    background-image: url(../img/sidebar/icon_sheet.png);
+  }
+  &.icon-share{
+    background-image: url(../img/sidebar/icon_share.png);
+  }
+  &.icon-star{
+    background-image: url(../img/icon_star_orange.png);
+  }
+  &.icon-notification{
+    width: 30px;
+    height: 30px;
+    background-color: $orange;
+    @include border-radius(50%);
+    color: #fff;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    top: 6px;
+  }
+}
+
+.notification-count{
+  width: 18px;
+  height: 18px;
+  background-color: $orange;
+  @include border-radius(50%);
+  color: #fff;
+  font-size: 10px;
+  line-height: 17px;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  right: -5px;
+  z-index: 1;
+  top: 4px;
+}
+
+
+.rating{
+  .star{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    background: url(../img/icon_star.png) no-repeat center;
+    background-size: 75%;
+    &.on{
+      background-color: $orange;
+    }
+    &.off{
+      background-color: #878787;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+﻿.push_navbar-title h2 {
+    color : #fff;
+}
+.push_navbar-nav {
+    width: 100%;
+}
+
+.input-error {
+    border:1px solid #F00 !important;
+}
+
+.text-center{
+    text-align: center ;
+}
+
+.push_content_1{
+    background-color: #625a59;
+}
+
+.center-div{
+    margin-top: 40%;
+    margin-left:10%;
+    width: 80%;
+}
+
+.p-center{
+    margin-left:5%;
+    width:90%;
+    text-align: justify;
+}
+button.button.back-button.buttons.button-login.header-item {
+    position: absolute;
+    left: 0px;
+    top: -10px;
+}
+button.button.back-button.buttons.button-clear.header-item {
+    position: absolute;
+    left: 0px;
+    top: -3px;
+}

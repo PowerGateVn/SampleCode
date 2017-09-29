@@ -1,0 +1,220 @@
+<div class="content-header">
+  <h2>Pupil Management</h2>
+  <div class="search-form">
+    <label for="">
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </label>
+    <input type="text" placeholder="Search" [(ngModel)]="searchText">
+    <button (click)="showModalPopup()">Add Pupil</button>
+  </div>
+</div>
+<div class="body-content">
+  <!--<input type="file" name="" value="" (change)='detectFiles($event)'>
+  <button (click)="uploadImage()">Upload Single</button>
+  <p>{{msgAvatar}}</p>-->
+   <div class="pupil-table">
+    <table>
+      <thead>
+        <tr>
+          <td (click)='orderBy("id")'>ID
+            <div class="order">
+              <span class="ion-arrow-up-b"></span>
+              <span class="ion-arrow-down-b"></span>
+            </div>
+          </td>
+          <td (click)='orderBy("last_name")'>Name
+            <div class="order">
+              <span class="ion-arrow-up-b"></span>
+              <span class="ion-arrow-down-b"></span>
+            </div>
+          </td>
+          <td>Address</td>
+          <td>Date of Birth</td>
+          <td>Father's Mobile</td>
+          <td>Mother's Mobile</td>
+          <td></td>
+        </tr>
+      </thead>
+       <tbody>
+         <tr *ngFor='let pupil of (pupils | pupilSearch:searchText | pupilSort:fieldsort:direction)'>
+          <td>{{pupil.id}}</td>
+          <td>{{pupil.last_name + ' ' + pupil.first_name}}</td>
+          <td>{{pupil.home_address}}</td>
+          <td>{{pupil.date_of_birth}}</td>
+          <td>{{pupil.father_mobile}}</td>
+          <td>{{pupil.mother_mobile}}</td>
+          <td><img src="{{pupil.avatar_url}}" alt=""></td>
+          <td>
+            <i class="fa fa-pencil" aria-hidden="true" (click)="openModalUpdatePupil(pupil.$key)"></i>
+            <i class="fa fa-trash" aria-hidden="true" (click)="deletePupil(pupil.$key)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal modal-overlay" *ngIf="showModal">
+  <div class="modal-form addPupil">
+    <div class="modal-header">
+      <h3>Add Pupil</h3>
+    </div>
+    <div class="modal-content">
+      <form>
+        <p class="invalid">{{formMsg}}</p>
+        <p class="invalid">{{msgAvatar}}</p>
+        <p class="valid">{{formMsgValid}}</p>
+        <div class="row">
+          <div class="col col-50">
+            <label for="">ID</label>
+            <input type="text" placeholder="" name="id" [(ngModel)]="id">
+          </div>
+          <div class="col col-50">
+            <label for="">Home Address</label>
+            <input type="text" placeholder="" name="home_address" [(ngModel)]="home_address">
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="col col-50">
+            <label for="">First Name</label>
+            <input type="text" placeholder="" name="fname" [(ngModel)]="first_name">
+          </div>
+          <div class="col col-50">
+            <label for="">Last Name</label>
+            <input type="text" placeholder="" name="lname" [(ngModel)]="last_name">
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="col col-50">
+            <label for="">Location (Site 1, Site 2, Site 3...)</label>
+            <input type="text" placeholder="" name="location" [(ngModel)]="location">
+          </div>
+          <div class="col col-50">
+            <label for="" style="margin-bottom: 25px;">Tutor</label>
+            <input type="text" placeholder="" name="tutor" [(ngModel)]="tutor">
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="col col-50">
+            <label for="">Allergies</label>
+            <input type="text" placeholder="" name="allergies" [(ngModel)]="allergies">
+          </div>
+          <div class="col col-50">
+            <label for="">Date of Birth</label>
+            <input type="text" placeholder="" name="dob" [(ngModel)]="date_of_birth">
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="col col-50">
+            <label for="">Father's Mobile</label>
+            <input type="text" placeholder="" name="father_mobile" [(ngModel)]="father_mobile">
+          </div>
+          <div class="col col-50">
+            <label for="">Mother's Mobile</label>
+            <input type="text" placeholder="" name="mother_mobile" [(ngModel)]="mother_mobile">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-100">
+            <label for="">Picture</label>
+            <input type="file" name="avatar_url" value='' (change)='uploadAvatar($event)'>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btnCancel" (click)="cancelModal()">Cancel</button>
+      <button type="submit" class="btnSave" (click)="addPupil()">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-overlay" *ngIf="showModalUpdate">
+  <div class="modal-form editPupil">
+    <div class="modal-header">
+      <h3>Edit Pupil</h3>
+    </div>
+    <div class="modal-content">
+      <form>
+        <p class="invalid">{{formMsg}}</p>
+        <p class="invalid">{{msgAvatar}}</p>
+        <p class="valid">{{formMsgValid}}</p>
+        <div class="row">
+          <div class="col col-50">
+            <label for="">ID</label>
+            <input type="text" placeholder="" name="id" [(ngModel)]="pupilItem.id">
+          </div>
+          <div class="col col-50">
+            <label for="">Home Address</label>
+            <input type="text" placeholder="" name="home_address" [(ngModel)]="pupilItem.home_address">
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="col col-50">
+            <label for="">First Name</label>
+            <input type="text" placeholder="" name="fname" [(ngModel)]="pupilItem.first_name">
+          </div>
+          <div class="col col-50">
+            <label for="">Last Name</label>
+            <input type="text" placeholder="" name="lname" [(ngModel)]="pupilItem.last_name">
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="col col-50">
+            <label for="">Location (Site 1, Site 2, Site 3...)</label>
+            <input type="text" placeholder="" name="location" [(ngModel)]="pupilItem.location">
+          </div>
+          <div class="col col-50">
+            <label for="" style="margin-bottom: 25px;">Tutor</label>
+            <input type="text" placeholder="" name="tutor" [(ngModel)]="pupilItem.tutor">
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="col col-50">
+            <label for="">Allergies</label>
+            <input type="text" placeholder="" name="allergies" [(ngModel)]="pupilItem.allergies">
+          </div>
+          <div class="col col-50">
+            <label for="">Date of Birth</label>
+            <input type="text" placeholder="" name="dob" [(ngModel)]="pupilItem.date_of_birth">
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="col col-50">
+            <label for="">Father's Mobile</label>
+            <input type="text" placeholder="" name="father_mobile" [(ngModel)]="pupilItem.father_mobile">
+          </div>
+          <div class="col col-50">
+            <label for="">Mother's Mobile</label>
+            <input type="text" placeholder="" name="mother_mobile" [(ngModel)]="pupilItem.mother_mobile">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-100">
+            <label for="">Avatar</label>
+            <div class="img-present" *ngIf="pupilItem.avatar_url">
+              <img src="{{pupilItem.avatar_url}}" alt="">
+            </div>
+            <input type="file" name="avatar_url" value="" (change)='updateSelect($event)'>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btnCancel" (click)="cancelModalUpdate()">Cancel</button>
+      <button type="submit" class="btnSave" (click)="updatePupil(pupilItem.$key)">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="loading" *ngIf="loading">
+  <img src="./assets/loading.gif" alt="">
+</div>

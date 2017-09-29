@@ -1,0 +1,141 @@
+/**/
+
+.wrapper-page--inner{
+  min-height: calc(100vh - 60px) !important;
+  position: relative;
+  .main-content{
+    padding: 20px;
+  }
+}
+
+.inner-page__title{
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.inner-page__content{
+  @extend %clearfix;
+  padding: 0 20px;
+}
+.condition-box{
+  padding: 20px;
+  .condition-box__title{
+    margin: 0 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .condition-box__content{
+    @extend %clearfix;
+  }
+}
+.result-box{
+  padding: 20px;
+  padding-top: 0;
+  .table{
+    th{
+      cursor: pointer;
+      i{
+        opacity: 0;
+      }
+      &:hover{
+        i{
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .result-box__list{
+    margin-bottom: 20px;
+    table{
+      tr{
+        cursor: pointer;
+        &:hover,  &:focus{
+          background: #fafafa;
+        }
+      }
+    }
+  }
+}
+
+.inner-page{
+  background: #ffffff;
+  &.no-bgr{
+    background: transparent;
+    .condition-box{
+      padding: 0;
+    }
+    .result-box{
+      padding: 0;
+    }
+    .inner-page__content{
+      padding: 0;
+    }
+    .inner-page__title{
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.required{
+  color: #FF0000;
+}
+
+.no-padding{
+  padding: 0;
+}
+
+.no-padding-l{
+  padding-left: 0;
+}
+.no-padding-r{
+  padding-right: 0;
+}
+
+.no-margin{
+  margin: 0;
+}
+
+.box--default{
+  .box__title{
+    text-decoration: underline;
+    color: #000000;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+
+.chart-box{
+  max-width: 100%;
+}
+
+.border--right{
+  padding-right: 15px;
+  border-right: 1px solid #000000;
+}
+
+.box--white{
+  padding: 20px;
+  background: #ffffff;
+  margin-bottom: 20px;
+  @extend %clearfix;
+}
+
+.form--not-active{
+  pointer-events: none;
+  cursor: default;
+}
+@media screen and (max-width: 767px){
+  .wrapper-page--inner .main-content, .condition-box, .result-box{
+    padding: 10px;
+  }
+  .border--right{
+    border-right:none;
+    padding-right: 0;
+  }
+  .box--white{
+    padding: 10px;
+  }
+}

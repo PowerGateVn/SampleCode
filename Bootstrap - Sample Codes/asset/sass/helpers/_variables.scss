@@ -1,0 +1,10 @@
+$color-primary: #616f77;
+$body-bg: #e7eaeb;
+$default-color: #2e3947;
+$path-img: '';
+//responsive device
+$breakpoints: (
+        'small': (min-width: 767px),
+        'medium': (min-width: 992px),
+        'large': (min-width: 1200px)
+) !default;

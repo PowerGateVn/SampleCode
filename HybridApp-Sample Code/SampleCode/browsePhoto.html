@@ -1,0 +1,33 @@
+<ion-view>
+    <ion-header-bar class="lookgood_navbar">
+        <h2>PHOTOS</h2>
+    </ion-header-bar>
+
+  <ion-content>
+        <section class="lookgood_page-photo lookgood_page-photo-grid">
+            <div class="lookgood_photo-block lookgood_span50" ng-repeat="photo in Photos">
+                <div class="lookgood_photo-block-content" >
+                    <div class="lookgood_photo-block-img">
+                        <a ng-click="viewAPhoto({{$index}})"><img ng-src="{{photo.ImagePath}}"/></a>
+                    </div>
+                    <div class="lookgood_photo-like" ng-click="lovePhoto($index)">
+                        <span class="lookgood_like-count">{{photo.NumOfLike}}</span>
+                        <i  ng-class="photo.IsLoved ? 'lookgood_icon-fav' : 'lookgood_icon-fav-notloved'"></i>
+                    </div>
+                </div>
+                <div class="lookgood_photo-block-meta">
+                    <div class="lookgood_usr-block">
+                        <div class="lookgood_usr-avatar">
+                            <img ng-src="{{photo.ProAvatar}}" alt="User Avatar"/>
+                        </div>
+                        <div class="lookgood_usr-info">
+                            <h2 class="lookgood_usr-name">{{photo.ProFullName}}</h2>
+                            <h3 class="lookgood_usr-role">{{photo.SalonName | cutString:false:25}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ion-infinite-scroll ng-if="morePhotoAvailable" on-infinite="loadMore()" distance="1%" icon="ion-loading-c"></ion-infinite-scroll>
+        </section>
+  </ion-content>
+</ion-view>

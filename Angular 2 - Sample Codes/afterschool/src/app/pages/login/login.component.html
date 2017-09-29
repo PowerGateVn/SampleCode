@@ -1,0 +1,30 @@
+<div class="modal modal-root">
+  <div class="modal-overlay">
+    <div class="modal-form LoginForm">
+      <div class="logmForm-bg"></div>
+      <div class="logmForm-form">
+        <div class="form-logo">
+          <img src="./assets/img/img02.png" alt="">
+        </div>
+        <form action="">
+          <div class="form-row">
+            <label for="">
+              <i class="ion-person"></i>
+            </label>
+            <input type="text" placeholder="Username" name="username" [(ngModel)]="username">
+          </div>
+          <div class="form-row">
+            <label for="">
+              <i class="ion-locked"></i>
+            </label>
+            <input type="password" placeholder="Password" name="password" [(ngModel)]="password">
+          </div>
+           <div class="form-row" *ngIf="message">
+            <p class="invalid">{{message}}</p>
+           </div>
+          <button type="submit" (click)="login()">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

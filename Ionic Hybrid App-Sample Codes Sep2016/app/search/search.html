@@ -1,0 +1,56 @@
+﻿<ion-view view-title="Accueil - Docotop" cache-view="false" class="view-wrap">
+
+        <div class="search-page">
+            <div class="header">
+                <h1>TROUVEZ LE MEILLEUR</h1>
+                <h2>spécialiste à proximité</h2>
+            </div>
+            <div class="content">
+                <div class="form search-form">
+                    <div class="form-group">
+                        <i class="form-icon icon-health"></i>
+                        <label class="form-label">Votre spécialiste</label>
+                        <select class="form-input" id="speciality" name="speciality" ng-focus="specialFocus()" ng-class="{'input-error': specialCheck}">
+                            <option selected disabled style="display: none" value="">Choisissez une spécialité</option>
+                            <option ng-repeat="speciality in listSpeciality" ng-selected="speciality.id == searchInfo.specId" value="{{speciality.id}}">{{speciality.n}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <i class="form-icon icon-location"></i>
+                        <label class="form-label">Localisation</label>
+
+                        <angucomplete-alt id="cityName"
+                                          placeholder="Chercher ma ville"
+                                          pause="500"
+                                          selected-object="selectedSP"
+                                          remote-url="{{searchInfo.cityUrl}}"
+                                          remote-url-data-field="cities"
+                                          remote-url-request-formatter="remoteUrlRequestFn"
+                                          search-fields="n"
+                                          title-field="n"
+                                          minlength="1"
+                                          input-class="form-input"
+                                          input-changed="inputChangedFn"
+                                          autocomplete="false"
+                                          text-no-results="false"
+                                          initial-value="myInitialValue(string)"
+                                          match-class="text-success"
+                                          focus-in="focusIn()"
+                                          focus-out="defaultLocation()"/>
+                        <!--<input class="form-input" type="text" focus-me="isFocused" name="cityName" id="cityName" value="Activez la géolocalisation" required ng-class="{'input-error': form.cityName.$invalid && form.cityName.$touched}">-->
+                    </div>
+                    <div class="clearfix visible-mobile"></div>
+                    <div class="form-submit">
+                        <input id="searchSubmitButton" ng-click="search()" class="search-submit" type="button" value="Rechercher">
+                    </div>
+                </div>
+                <div class="text-center visible-mobile">
+                    <a ng-click="viewPro()" class="footer-link">Je suis un spécialiste</a>
+                </div>
+            </div>
+        </div>
+
+
+
+</ion-view>
+

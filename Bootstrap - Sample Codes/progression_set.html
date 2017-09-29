@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="asset/css/bootstrap-theme.min.css"/>
+    <link type="text/css" rel="stylesheet" href="asset/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="asset/css/font-awesome.min.css"/>
+
+    <link type="text/css" rel="stylesheet" href="asset/css/main.css"/>
+    <script type='text/javascript' src="asset/js/jquery.min.js"></script>
+    <script type='text/javascript' src="asset/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="wrapper-page wrapper-page--inner">
+    <div class="content-wrapper">
+        <div class="header header--main">
+            <div class="header__logo">
+                <a href="index.html">
+                    Geneva
+                </a>
+            </div>
+            <div class="header__menu">
+                <ul class="list-inline">
+                    <li>Current profile: <span>All Contracts</span></li>
+                    <li><a href="logout.html">Log out</a></li>
+                </ul>
+            </div>
+        </div><!--end header-->
+        <div class="bs-docs-nav">
+            <nav class="global-nav nav--horizontal">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+                    <div class="container-fluid">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-tasks"
+                                                                                 aria-hidden="true"></i>&nbsp;&nbsp;Cases</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="case_case-search.html" target="_blank"><img src="images/icon-mn1.png">&nbsp;&nbsp;Casesearch</a>
+                                    </li>
+                                    <li><a href="case_batch-memos.html" target="_blank"><i class="fa fa-file-o"></i>&nbsp;&nbsp;Batch
+                                        memos</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"
+                                                                                 aria-hidden="true"></i>&nbsp;&nbsp;Configuration</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="configuration_watch_list.html" target="_blank"><img
+                                                src="images/watchlist.png">&nbsp;&nbsp;Watch
+                                            list</a>
+                                    </li>
+                                    <li><a href="configuration_break-types.html" target="_blank"><i
+                                            class="fa fa-file-o"></i>&nbsp;&nbsp;
+                                        progressions</a></li>
+                                    <li><a href="configuration_maintenance.html" target="_blank"><i
+                                            class="fa fa-recycle"></i>&nbsp;&nbsp;
+                                        DPO Maintenance</a></li>
+                                    <li><a href="configuration_payment.html" target="_blank"><i
+                                            class="fa fa fa-credit-card"></i>&nbsp;&nbsp; Payment methods</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"
+                                                                                 aria-hidden="true"></i>&nbsp;&nbsp;Handheld
+                                    config</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="handheld-config_persistent-evaders.html" target="_blank"><img
+                                                src="images/Persistent_evaders.png">&nbsp;&nbsp;Persistent evaders</a>
+                                    </li>
+                                    <li>
+                                        <a href="handheld-config_special-messages.html" target="_blank"><img
+                                                src="images/SMS-512.png">&nbsp;&nbsp;Special messages</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-pencil-square-o"
+                                                                                 aria-hidden="true"></i>&nbsp;&nbsp;Reporting</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="reporting_safe-report.html" target="_blank"><img
+                                                src="images/SAFE.report.png">&nbsp;&nbsp;S.A.F.E.
+                                            report</a>
+                                    </li>
+                                    <li>
+                                        <a href="reporting_dashboard.html" target="_blank"><img
+                                                src="images/icon-mn2.png">&nbsp;&nbsp;Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <a href="reporting_reports.html" target="_blank"><img src="images/flag.png">&nbsp;&nbsp;Reports</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-external-link"
+                                                                                 aria-hidden="true"></i>&nbsp;&nbsp;Utilities</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="utulities_workflow.html" target="_blank"><img
+                                                src="images/icon-mn3.png">&nbsp;&nbsp;Workflow
+                                            <span class="log-icon log-icon--success">!</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-database"
+                                                                                 aria-hidden="true"></i>&nbsp;&nbsp;System</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="system_security.html" target="_blank"><img src="images/Security.png">&nbsp;&nbsp;Security
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"
+                                                                                 aria-hidden="true"></i>&nbsp;&nbsp;Transactions</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="transactions_search.html" target="_blank"><i
+                                                class="fa fa-shopping-cart"></i>
+                                            &nbsp;&nbsp;Transaction search</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div><!--end bs-doc-nav-->
+        <div class="main-content">
+            <div class="inner-page ">
+                <div class="condition-box">
+                    <h2 class="condition-box__title">Progressions Set</h2>
+
+                    <div class="condition-box__content">
+                        <button type="button" class="btn btn-success" data-toggle="modal"
+                                data-target="#add-progress-modal" data-original-title="Add a new progression..."><i
+                                class="fa fa-plus"></i></button>
+                    </div>
+                </div><!--end condition-box-->
+                <div class="result-box">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="result-box__list table-responsive">
+                                <table class="table text-center table--customize">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            <span>Code</span>
+                                            <i class="fa fa-caret-down pull-right"></i>
+                                        </th>
+                                        <th>Title</th>
+                                        <th>Sequence</th>
+                                        <th>Path</th>
+                                        <th>No. of Assigned progression code</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>AAA</td>
+                                        <td>Banh xeo</td>
+                                        <td>X</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#edit-type-modal">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#delete-type-modal">
+                                                <i class="fa fa-close" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>AAA</td>
+                                        <td>Banh xeo</td>
+                                        <td>X</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#edit-type-modal">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#delete-type-modal">
+                                                <i class="fa fa-close" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>AAA</td>
+                                        <td>Banh xeo</td>
+                                        <td>X</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#edit-type-modal">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#delete-type-modal">
+                                                <i class="fa fa-close" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>AAA</td>
+                                        <td>Banh xeo</td>
+                                        <td>X</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#edit-type-modal">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#delete-type-modal">
+                                                <i class="fa fa-close" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>AAA</td>
+                                        <td>Banh xeo</td>
+                                        <td>X</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#edit-type-modal">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#delete-type-modal">
+                                                <i class="fa fa-close" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>AAA</td>
+                                        <td>Banh xeo</td>
+                                        <td>X</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#edit-type-modal">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#delete-type-modal">
+                                                <i class="fa fa-close" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>AAA</td>
+                                        <td>Banh xeo</td>
+                                        <td>X</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#edit-type-modal">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#delete-type-modal">
+                                                <i class="fa fa-close" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>AAA</td>
+                                        <td>Banh xeo</td>
+                                        <td>X</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#edit-type-modal">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#delete-type-modal">
+                                                <i class="fa fa-close" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>AAA</td>
+                                        <td>Banh xeo</td>
+                                        <td>X</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#edit-type-modal">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#delete-type-modal">
+                                                <i class="fa fa-close" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>AAA</td>
+                                        <td>Banh xeo</td>
+                                        <td>X</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#edit-type-modal">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger "
+                                                    data-original-title="Amend selected progression…"
+                                                    data-toggle="modal" data-target="#delete-type-modal">
+                                                <i class="fa fa-close" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="result-box__status">
+                                        Tìm được 1129 bản ghi
+                                    </div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <ul class="pagination pull-right">
+                                        <li>
+                                            <a href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li>
+                                            <a href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul><!--and pager-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!--end result box-->
+            </div>
+        </div><!--end main-content-->
+    </div>
+    <!--modal edit progression-->
+    <div class="modal fade lg-modal" id="edit-type-modal" tabindex="-1" role="dialog"
+         aria-labelledby="edit-type-modalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="edit-type-modalLabel">Progression details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="row" style="margin-bottom: 20px;">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Code :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control">
+                                        <div class="error" style="margin-top: 5px; color: #ff0000;">Please enter your code!</div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Title :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control ">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Sequence :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control ">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required-field">Path :</label>
+                                    <div class="col-sm-2">
+                                        <input class="form-control"  maxlength="1" name="TYPE"
+                                               style="text-transform:uppercase" type="text" value="">
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="TYPE"
+                                              data-valmsg-replace="true"></span>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <input checked="checked" name="AllPaths"
+                                                   type="checkbox" value="true"><input name="AllPaths" type="hidden"
+                                                                                       value="false"> Apply to all
+                                            paths containing codes
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group clearfix" style="margin-bottom: 40px;">
+                            <div class="pull-left" style="width: 45% !important; padding: 0 15px;">
+                                <div class="text-left">
+                                    Progressions selected :
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table--customize no-margin table--scroll">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-xs-4">Code <i class="fa fa-caret-down"></i></th>
+                                            <th class="col-xs-8">Description <i class="fa fa-caret-down"></i></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody style="height: 180px;">
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="pull-left text-center" style="width: 10% !important; padding: 56px 15px;">
+
+                                <button type="button" class="btn btn-success">
+                                    <i class="glyphicon glyphicon-chevron-left"></i>
+                                </button>
+                                <button type="button" class="btn btn-success">
+                                    <i class="glyphicon glyphicon-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="pull-left" style="width: 45% !important; padding: 0 15px;">
+                                <div class="text-left">
+                                    Progressions available :
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table--customize no-margin table--scroll">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-xs-4">Code <i class="fa fa-caret-down"></i></th>
+                                            <th class="col-xs-8">Description <i class="fa fa-caret-down"></i></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody style="height: 180px;">
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-4 text-right">
+                                <button type="button" class="btn btn-success btn--radius" data-dismiss="modal">Save
+                                </button>
+                                <button type="button" class="btn btn-default btn--radius" data-dismiss="modal">Close
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--modal delete progression-->
+    <div class="modal fade sm-modal" id="delete-type-modal" tabindex="-1" role="dialog"
+         aria-labelledby="delete-type-modalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="delete-type-modalLabel">Progression details</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you wish to delete this progression?</p>
+                    <div class="group-btn text-right">
+                        <button type="button" class="btn btn-success btn--radius" data-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-default btn--radius">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--modal add progression Modal-->
+    <div class="modal fade lg-modal" id="add-progress-modal" tabindex="-1" role="dialog"
+         aria-labelledby="add-progress-modalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="add-progress-modalLabel">Progression set detail</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="row" style="margin-bottom: 20px;">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Code :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control">
+                                        <div class="error" style="margin-top: 5px; color: #ff0000;">AAA' code already exists. Please enter another code.</div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Title :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control ">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Sequence :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control ">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label required-field">Path :</label>
+                                    <div class="col-sm-2">
+                                        <input class="form-control"  maxlength="1" name="TYPE"
+                                               style="text-transform:uppercase" type="text" value="">
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="TYPE"
+                                              data-valmsg-replace="true"></span>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <input checked="checked" name="AllPaths"
+                                                   type="checkbox" value="true"><input name="AllPaths" type="hidden"
+                                                                                       value="false"> Apply to all
+                                            paths containing codes
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group clearfix" style="margin-bottom: 40px;">
+                            <div class="pull-left" style="width: 45% !important; padding: 0 15px;">
+                                <div class="text-left">
+                                    Progressions selected :
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table--customize no-margin table--scroll">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-xs-4">Code <i class="fa fa-caret-down"></i></th>
+                                            <th class="col-xs-8">Description <i class="fa fa-caret-down"></i></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody style="height: 180px;">
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="pull-left text-center" style="width: 10% !important; padding: 56px 15px;">
+
+                                <button type="button" class="btn btn-success">
+                                    <i class="glyphicon glyphicon-chevron-left"></i>
+                                </button>
+                                <button type="button" class="btn btn-success">
+                                    <i class="glyphicon glyphicon-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="pull-left" style="width: 45% !important; padding: 0 15px;">
+                                <div class="text-left">
+                                    Progressions available :
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table--customize no-margin table--scroll">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-xs-4">Code <i class="fa fa-caret-down"></i></th>
+                                            <th class="col-xs-8">Description <i class="fa fa-caret-down"></i></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody style="height: 180px;">
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-4">thanhnguyen_test</td>
+                                            <td class="col-xs-8">thanhnguyen_test</td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-4 text-right">
+                                <button type="button" class="btn btn-success btn--radius" data-dismiss="modal">Save
+                                </button>
+                                <button type="button" class="btn btn-default btn--radius" data-dismiss="modal">Close
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+    Copyright ©2017 Geneva
+</div>
+</body>
+</html>

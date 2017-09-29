@@ -1,0 +1,67 @@
+.dot-checkbox{
+  display: none;
+  &.big{
+    &+label{
+      &:before{
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+  &+label{
+    &:before{
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #fff;
+      @include border-radius(50%);
+      margin-right: 20px;
+      position: relative;
+      top: 6px;
+    }
+  }
+  &:checked{
+    &+label{
+      &:before{
+        background-color: #fff;
+      }
+    }
+  }
+  &.orange{
+    &+label{
+      &:before{
+        border: 2px solid $orange;
+        background-color: #fff;
+      }
+    }
+    &:checked{
+      &+label{
+        &:before{
+          background-color: $orange;
+          border-color: #fff;
+        }
+      }
+    }
+  }
+  @include exclude-phone{
+    &+label{
+      &:before{
+        width: 50px;
+        height: 50px;
+        @include border-radius(50%);
+        margin-right: 50px;
+        top: 15px;
+      }
+    }
+  }
+}
+.delete-block.active .dot-checkbox.orange:checked + label:before{
+  background-color: $orange;
+  border-color: #fff;
+}
+
+.delete-block .dot-checkbox.orange + label:before{
+  border: 2px solid #f39323;
+  background-color: #fff;
+}

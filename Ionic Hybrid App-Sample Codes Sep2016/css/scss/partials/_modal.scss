@@ -1,0 +1,200 @@
+.modal-backdrop-bg{
+  background-color: rgba(0,0,0,0.3);
+}
+
+.floating-modal{
+  width: 260px;
+  left: 50%;
+  margin-left: -130px;
+  min-height: 150px;
+  top: 50%;
+  bottom: auto!important;
+  margin-top: -75px;
+  .scroll-content{
+    padding: 10px;
+    font-size: 15px;
+    text-align: justify;
+    p{
+      margin: 0;
+      color: $grey-text;
+    }
+  }
+  &.no-padding{
+    .scroll-content{
+      padding: 0;
+    }
+  }
+  .action-link{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: $deep-blue;
+    margin: 5px 0 0 0;
+  }
+  @include exclude-phone{
+    width: 60%;
+    margin-left: -30%;
+    font-size: 26px;
+    min-height: 50%;
+    margin-top: -20%;
+    .scroll-content{
+      padding: 70px 50px;
+      text-align: center;
+      p{
+        font-size: 26px;
+        text-align: center;
+        font-weight: 300;
+        line-height: 30px;
+        color: #7c7c7c;
+      }
+    }
+    .action-link{
+      font-size: 26px;
+      color: $light-blue;
+      line-height: 46px;
+      border: 2px solid $light-blue;
+      width: 85%;
+      margin: 90px auto 0;
+    }
+  }
+}
+
+
+.forced-auth-modal{
+  min-height: 120px;
+  .scroll{
+    position: relative;
+    height: 100%;
+  }
+  p{
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 24px;
+  }
+
+  @include exclude-phone{
+    min-height: 30%;
+    margin-top: -17%;
+    width: 76%;
+    margin-left: -38%;
+    .scroll-content{
+      padding: 70px 0 0 0;
+      p{
+        padding: 0 60px;
+      }
+    }
+  }
+}
+
+.auth-modal{
+  @include desktop{
+    @include border-radius(10px);
+    background-color: $light-blue;
+    min-height: 50%;
+    margin-top: -18%;
+    color: #fff;
+    .scroll-content{
+      padding: 70px 0 0 0;
+      p{
+        color: #fff;
+        font-size: 18px;
+      }
+    }
+    .action-link{
+      color: #fff;
+      border: 2px solid #fff;
+      width: 90%;
+      padding: 10px 0;
+      text-decoration: none;
+      margin-bottom: 20px;
+      margin-top: 70px;
+      line-height: 26px;
+      font-size: 24px;
+      font-weight: 300;
+    }
+  } 
+  &.auth-page{
+    min-height: 60%;
+    margin-top: -20%;
+  }
+  .auth-section{
+    padding-top: 0px!important;
+  }
+  .term-accept{
+    text-align: left!important;
+    padding: 0 80px;
+  }
+  .dot-checkbox + label:before{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+  }
+  .signup-section{
+    padding: 0 45px!important;
+    @include calc(min-height, '100% - 48px');
+    position: fixed!important;
+    width: 100%;
+  }
+  .auth-form{
+    padding-top: 20px!important;
+  }
+}
+
+.auth-buttons{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  .row{
+    padding: 0;
+    .col{
+      padding: 0;
+    }
+  }
+  .action-link{
+    color: $light-blue;
+    border-top: 1px solid $deep-blue;
+    padding: 12px 5px;
+    font-size: 18px;
+    &.border-right{
+      border-right: 1px solid $deep-blue;
+    }
+  }
+  @include exclude-phone{
+    .action-link{
+      width: 100%;
+      border: 0;
+      border-top: 1px solid $deep-blue;
+      font-size: 26px;
+    }
+  }
+  @include desktop{
+    padding: 0 30px;
+    bottom: 0;
+    margin-top: 70px;
+    .row{
+      display: block;
+      .col{
+        width: 100%;    
+        max-width: 100%;
+      }
+    }
+    .action-link{
+      margin-top: 0;
+      color: #fff;
+      border: 2px solid #fff;
+      width:100%;
+      margin-bottom: 15px;
+      line-height: 26px;
+      font-size: 24px;
+      font-weight: 300;
+      &.border-right{
+        border-right: 2px solid #fff;
+      }
+      &.reverse{
+        color: $light-blue;
+        background-color: #fff;
+      }
+    }
+  }
+}

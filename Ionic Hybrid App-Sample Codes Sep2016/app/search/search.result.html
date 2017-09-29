@@ -1,0 +1,122 @@
+﻿<ion-view view-title="Search Result - Docotop" cache-view="false" class="search-result-page view-wrap" ng-controller="SearchResultCtrl as vm">
+    <div class="wrap-seach-result">
+    <div class="main-content">
+        <div class="header bar-subheader">
+
+            <div id="right-content">
+                <h1 class="hidden-desktop hidden-mobile">Les ostéopathes</h1>
+                <h2 class="hidden-desktop hidden-mobile">près de ROUEN</h2>
+
+                <!-- <a href="#" class="visible-xs">Nouvelle recherche ></a> -->
+
+                <form class="form search-form">
+                    <div class="form-group">
+                        <i class="form-icon icon-health"></i>
+                        <label class="form-label">Votre spécialiste</label>
+                        <select class="form-input" id="speciality">
+                            <option selected disabled style="display: none">Choisissez une spécialité</option>
+                            <option ng-repeat="speciality in vm.listSpeciality" ng-selected="speciality.id == vm.searchData.specId " value="{{speciality.id}}">{{speciality.n}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <i class="form-icon icon-location"></i>
+                        <label class="form-label">Votre localisation</label>
+                        <!--<input class="form-input" type="text" focus-me="isFocused" ng-click="vm.showGeoLocation()" id="cityName" value="{{vm.searchData.locationName}}">-->
+                        <angucomplete-alt id="cityName"
+                                          placeholder="Chercher ma ville"
+                                          pause="500"
+                                          selected-object="vm.selectedObject"
+                                          remote-url="{{vm.searchData.cityUrl}}"
+                                          remote-url-data-field="cities"
+                                          remote-url-request-formatter="remoteUrlRequestFn"
+                                          search-fields="n"
+                                          title-field="n"
+                                          minlength="1"
+                                          input-changed="inputChangedFn"
+                                          initial-value="myInitialValue(string)"
+                                          input-class="form-input"
+                                          match-class="text-success"
+                                          focus-in="focusIn()"
+                                          focus-out="defaultLocation()"/>
+                    </div>
+                    <div class="clearfix visible-mobile"></div>
+                    <div class="form-submit">
+                        <input type="submit" ng-click="vm.searchInfo()" class="search-submit" value="Rechercher">
+                    </div>
+                </form>
+                <div class="text-center hidden-xs hidden-desktop">
+                    <a ng-click="viewPro()" class="footer-link">Je suis un spécialiste</a>
+                </div>
+            </div>
+
+
+        </div>
+        <ion-content class="page-content" delegate-handle="resultlist">
+
+            <div class="content-result-search">
+                <div class="result-list">
+                    <!--<ion-scroll zooming="false" direction="y" class="ionic-scroll">-->
+                    <ion-list ng-if="vm.result.length > 0">
+                        <ion-item ng-repeat="item in vm.result" class="result-item" ng-click="vm.viewDetail('{{item.id}}')">
+                            <div class="avatar-container">
+                                <div class="avatar">
+                                    <img src="{{item.imgurl}}" alt="avatar" onerror="this.onerror = null; this.src='img/noavatar.png';"/>
+                                </div>
+                            </div>
+                            <div class="people-meta">
+                                <div class="details">
+                                    <div class="main-details">
+                                        <h3 class="people-name">{{item.first}} {{item.second}}</h3>
+                                        <span class="star-rating star-{{item.note_g}} user-rating"></span>
+                                    </div>
+                                    <div class="address">
+                                        <p class="address-line1">{{item.adr1}}</p>
+                                        <p class="address-line2">{{item.adrFull}}</p>
+
+                                    </div>
+                                    <a ng-click="vm.viewRating('{{item.id}}', $event)" class="user-badge" style="z-index: 100">
+                                        <span>Je note!</span>
+                                    </a>
+                                    <a ng-click="vm.viewDetail('{{item.id}}')" class="read-more visible-mobile" style="z-index: 200; text-decoration: underline">Plus d'avis ></a>
+                                    <a ng-click="vm.viewDetail('{{item.id}}')" class="read-more visible-desktop" style="z-index: 200">Lire les avis ></a>
+                                </div>
+                                <!--<span class="quote hidden-xs">«Un spécialiste de qualité à 2 pas du centre-ville de Rouen. Je recommande !»</span>-->
+                            </div>
+
+                        </ion-item>
+                        <ion-infinite-scroll hidden on-infinite="vm.loadMoreResults()"
+                                             distance="1%">
+                        </ion-infinite-scroll>
+                        <!--<a href="#" ng-click="vm.nextPage()" class="more-link">
+                            Page suivante > {{idx}}
+                        </a>-->
+                    </ion-list>
+                    <!--</ion-scroll>-->
+                    <div class="no-result" ng-if="vm.result.length == 0 && vm.isLoading == false">
+                        <div class="card alert-box">
+                            <div class="item item-text-wrap">
+
+
+                                <p>Nous n'avons trouvé aucun professionnel correspondant à votre recherche.</p>
+                                <br />
+                                <p>N'hésitez pas à ajouter une fiche pour compléter les résultats.</p>
+
+                            </div>
+                        </div>
+                        <a ng-click="vm.goViewAddParamed()" class="button-orange full">Ajouter une fiche</a>
+                        <a ng-click="viewPro()" class="more-link" style="text-decoration: underline">
+                            Je suis un spécialiste
+                        </a>
+                    </div>
+                </div>
+
+                <div id="map" class="map">
+
+                </div>
+            </div>
+        </ion-content>
+
+    </div>
+    </div>
+
+</ion-view>

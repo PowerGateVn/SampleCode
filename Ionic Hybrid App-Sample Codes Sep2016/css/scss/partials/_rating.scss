@@ -1,0 +1,64 @@
+.star-rating{
+  background: url(../img/star_rating.png) no-repeat;
+  width: 220px;
+  height: 40px;
+  background-size: 100%;
+  display: inline-block;
+  &.star-5{
+    background-position: 0 0;
+  }
+  &.star-4{
+    background-position: 0 -40px;
+  }
+  &.star-3{
+    background-position: 0 -80px;
+  }
+  &.star-2{
+    background-position: 0 -120px;
+  }
+  &.star-1{
+    background-position: 0 -160px;
+  }
+  &.star-0{
+    background-position: 0 -200px;
+  }
+  &.small{
+    width: 110px;
+    height: 20px;
+    &.star-5{
+      background-position: 0 0;
+    }
+    &.star-4{
+      background-position: 0 -20px;
+    }
+    &.star-3{
+      background-position: 0 -40px;
+    }
+    &.star-2{
+      background-position: 0 -60px;
+    }
+    &.star-1{
+      background-position: 0 -80px;
+    }
+    &.star-0{
+      background-position: 0 -100px;
+    }
+  }
+}
+
+.star-rounded{
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-image: url(../img/icon_star.png);
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+  @include border-radius(50%);
+  &.star-on{
+    background-color: $orange;
+  }
+  &.star-off{
+    background-color: $grey;
+  }
+}

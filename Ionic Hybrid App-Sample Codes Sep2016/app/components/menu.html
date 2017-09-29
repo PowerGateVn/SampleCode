@@ -1,0 +1,100 @@
+<ion-side-menus enable-menu-with-back-views="true" ng-controller="AppCtrl as vm" class="main-side-menu">
+    <ion-side-menu-content drag-content="data.canDrag">
+        <ion-nav-bar class="bar-header bar-mobile visible-mobile">
+            <div class="">
+            <div class="mask-overlay-3" ng-click="removeMaskClass()"></div>
+            <ion-nav-buttons side="right">
+                <button class="button button-menu" menu-toggle="right">
+                </button>
+                <i class="notification-count"  ng-show="(user!=null)" ng-if="numNotification > 0">{{numNotification}}</i>
+            </ion-nav-buttons>
+
+            <ion-nav-back-button class="back-button-ios">
+            </ion-nav-back-button>
+
+            </div>
+        </ion-nav-bar>
+
+        <ion-header-bar class="bar-stable bar-desktop visible-desktop" ng-class="class">
+            <div class="mask-overlay-2" ng-click="removeMaskClass()"></div>
+            <div class="logo">
+                <a ng-click="vm.goSearch()"><img src="./img/logo_big.png" alt="logo" style="cursor: pointer"/></a>
+            </div>
+            <ul class="nav nav-right" activemenu>
+                <li ng-click="vm.goSearch()"><a ui-sref-active="active">Accueil</a></li>
+            </ul>
+        </ion-header-bar>
+
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu width="220" side="right">
+        <ion-content class="sidebar-menu-wrapper">
+            <ion-list class="sidebar-menu">
+                <ion-item menu-close href="" ng-click="vm.goSearch()" >
+                    Recherche
+                    <i class="sidebar-icon icon-search"></i>
+                </ion-item>
+                <ion-item menu-close href="" ng-click="vm.gotoLogin()" ng-show="(user.isPro==null)">
+                    Connexion
+                    <i class="sidebar-icon icon-login icon-connexion"></i>
+                </ion-item>
+                <ion-item menu-close href="" ng-click="vm.goProfile()" ng-show="(user.isPro!=null)">
+                    Mon profil
+                    <i class="sidebar-icon icon-profile"></i>
+                </ion-item>
+                <ion-item menu-close href="" ng-click="vm.goParamDelete()" ng-show="(user.isPro!=null)">
+                    Mes spécialistes
+                    <i class="sidebar-icon icon-list"></i>
+                </ion-item>
+                <ion-item menu-close href="" ng-click="vm.goNoti()" ng-show="(user.isPro=='no')">
+                    Notifications
+                    <i class="sidebar-icon icon-notification">{{numNotification}}</i>
+                </ion-item>
+                <ion-item menu-close href="" ng-click="vm.goAddParam()" ng-show="(user.isPro!=null)">
+                    Ajouter une fiche
+                    <i class="sidebar-icon icon-add"></i>
+                </ion-item>
+                <ion-item menu-close href="" ng-click="vm.goSetting()">
+                    Paramètres
+                    <i class="sidebar-icon icon-config"></i>
+                </ion-item>
+            </ion-list>
+            <ion-list class="sidebar-pro-menu">
+
+                <ion-item class="menu-header" menu-close ng-show="(user.isPro=='no')" ng-click="vm.createProfileInfo()">Espace professionnel</ion-item>
+                <ion-item class="menu-header" ng-show="(user.isPro=='yes')">Espace professionnel</ion-item>
+                <ion-item menu-close href="" ng-click="vm.goNoti()" ng-show="(user.isPro=='yes')">
+                    Notifications
+                    <i class="sidebar-icon icon-notification">{{numNotification}}</i>
+                </ion-item>
+                <ion-item menu-close  ng-click="vm.goEditPro()" ng-show="(user.isPro=='yes')">
+                    Ma fiche
+                    <i class="sidebar-icon icon-sheet"></i>
+                </ion-item>
+                <!--<ion-item menu-close href="" ui-sref-active="active">-->
+                <!--Partager ma fiche-->
+                <!--<i class="sidebar-icon icon-share"></i>-->
+                <!--</ion-item>-->
+                <!-- Single button using append-to-body -->
+                <ion-item href="" ui-sref-active="active" ng-show="(user.isPro=='yes')">
+                    <div class="btn-group" uib-dropdown dropdown-append-to-body>
+              <span id="btn-append-to-body" class="btn btn-primary" uib-dropdown-toggle>
+                   Partager ma fiche <span class="caret"></span>
+                   <i class="sidebar-icon icon-share"></i>
+              </span>
+                        <ul uib-dropdown-menu class="menu-share-dropdown" role="menu"
+                            aria-labelledby="btn-append-to-body">
+                            <li role="menuitem"><a ng-click="vm.share(1)">Partager sur Facebook</a></li>
+                            <li role="menuitem"><a ng-click="vm.share(2)">Partager sur Google+</a></li>
+                            <li role="menuitem"><a ng-click="vm.share(3)">Envoyer par mail</a></li>
+                        </ul>
+                    </div>
+                </ion-item>
+                <ion-item menu-close href="" ng-click="vm.goViewrating()" ng-show="(user.isPro=='yes')">
+                    Les avis sur ma fiche
+                    <i class="sidebar-icon icon-star"></i>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,68 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "afterschool-web"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../node_modules/ionicons-npm/scss/ionicons.scss",
+        "../node_modules/font-awesome/scss/font-awesome.scss",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css",
+        "../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css",
+        "styles.scss"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/bootstrap-datepicker/js/bootstrap-datepicker.js",
+        "../node_modules/bootstrap-timepicker/js/bootstrap-timepicker.js",
+        "../node_modules/jspdf/dist/jspdf.min.js",
+        "../node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json"
+    },
+    {
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": {}
+  }
+}

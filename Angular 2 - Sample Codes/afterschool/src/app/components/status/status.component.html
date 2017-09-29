@@ -1,0 +1,111 @@
+<div class="content-header">
+  <div class="from">
+    <span>From</span>
+    <datetime [ngModel]="dateFrom" (ngModelChange)="handleDateFromChange($event)" [timepicker]="false" readonly [datepicker]="datepickerFromOpts"></datetime>
+  </div>
+  <div class="to">
+    <span>To</span>
+    <datetime [(ngModel)]="dateTo" (ngModelChange)="handleDateToChange($event)" [timepicker]="false" readonly [datepicker]="datepickerToOpts"></datetime>
+  </div>
+  <div class="search-pupils">
+    <input type="text" value="Search pupils" class="showPupil" readonly (click)="openFilter()">
+    <div class="arrow" (click)="openFilter()">
+      <i class="fa fa-sort" aria-hidden="true"></i>
+    </div>
+    <div class="form-search-pupils">
+      <div class="input-search">
+        <label for="">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </label>
+        <input type="text" placeholder="Search" value="" [(ngModel)]="searchText">
+        <label class="clear" for="" (click)="clearText()">
+          <i class="ion-backspace"></i>
+        </label>
+      </div>
+      <div class="list-pupils">
+        <div class="row checkbox-item" *ngFor="let item of (pupils | statusSearch: searchText); let i = index">
+          {{item.checked}}
+          <input type="checkbox" id="pupils-id-{{i}}" name="id" value="item.id" (change)="getCheckedPupils($event, item.id)">
+          <label for="pupils-id-{{i}}">{{item.last_name}} {{item.first_name}}</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="body-content">
+  <div class="status-table">
+    <div class="status-table-grid">
+      <div class="left-col">
+        <table>
+          <thead>
+            <tr>
+              <td>Pupils</td>
+              <td>Location</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let item of status'>
+              <td>{{ item.last_name + " " + item.first_name }}</td>
+              <td>{{item.location}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="center-col">
+        <table>
+          <thead>
+            <tr>
+              <td *ngFor='let item of header'>
+                <span class="day">{{item.day}}</span>
+                <br>
+                <span class="date">({{ item.date }}<span class="sup">{{item.sup}}</span>{{ item.month }})</span>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let item of status'>
+              <td *ngFor='let log of item.logs'>
+                <tr>
+                  <td style="color: green">{{ log.time_checkin | date:'HH:mm' }}</td>
+                  <td>{{ log.agent_checkin }}</td>
+                  <td style="color: red">{{ log.time_checkout | date:'HH:mm' }}</td>
+                  <td>{{ log.agent_checkout }}</td>
+                </tr>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="right-col">
+        <table>
+          <thead>
+            <tr>
+              <td>Total<br>Minutes</td>
+              <td>Total<br>1/2h</td>
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor='let item of status'>
+              <td>{{item.total}}</td>
+              <td>{{item.half_total}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- status  -->
+  <div class="export">
+    <div class="group-export">
+      <div class="btn-export"><i class="ion-android-download"></i>Export</div>
+      <div class="export-option">
+        <button (click)="exportExcel()"><i class="fa fa-file-excel-o" aria-hidden="true"></i>Download as Excel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading" *ngIf="loading">
+  <img src="./assets/loading.gif" alt="">
+</div>

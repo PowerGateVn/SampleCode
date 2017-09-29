@@ -1,0 +1,27 @@
+.list-box-user-roles {
+  border: 1px solid #ddd;
+  padding: 10px;
+  ul {
+    padding: 6px 12px;
+    border: 1px solid #dddddd;
+    background: #eeeeee;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;;
+    height: 88px;
+    margin-bottom: 0;
+    overflow: auto;
+  }
+  margin-bottom: 15px;
+}
+
+.control-button {
+  button {
+    border: none;
+    background: #eeeeee;
+    line-height: 20px;
+    height: 20px;
+    width: 100%;
+    margin-bottom: 2px;
+  }
+}

@@ -1,0 +1,42 @@
+.interface{
+  .col{
+    padding: 0 15px;
+  }
+  .wp-box{
+    margin-top: 20px;
+  }
+
+}
+.w30p{
+  width: 30%;
+}
+.text-overflow{
+  line-height: 1.5em;
+  height: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@for $i from 1 through 100{
+  .w-#{$i}{
+    width: calc(1%*#{$i});
+    width: -moz-calc(#{$i}*1%);;
+  }
+}
+
+.vq5s-detail{
+  .di-table{
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    .di-table-cell{
+      display: table-cell;
+      vertical-align: top;
+      padding: 0 10px;
+      &.list{
+        width: 70%;
+      }
+    }
+  }
+}

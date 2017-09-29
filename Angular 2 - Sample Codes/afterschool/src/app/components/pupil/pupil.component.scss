@@ -1,0 +1,79 @@
+// pupil table
+.pupil-table {
+  margin: 15px 0;
+  overflow: auto;
+  .order {
+    display: inline-block;
+    margin-top: -12px;
+    margin-left: 5px;
+    vertical-align: middle;
+    span {
+      display: block;
+      width: 8px;
+      height: 8px;
+      font-size: 10px;
+      cursor: pointer;
+    }
+  }
+  table {
+    width: 100%;
+    min-width: 960px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid #dae0e4;
+    border-radius: 4px;
+    background: #fff;
+    tr {
+      td {
+        text-align: center;
+        padding: 15px 10px;
+        line-height: 1em;
+      }
+      td:nth-child(1) { width: 8%; }
+      td:nth-child(2) { width: 15%; }
+      td:nth-child(3) { width: 12%; }
+      td:nth-child(4) { width: 15%; }
+      td:nth-child(5) { width: 16%; }
+      td:nth-child(6) { width: 16%; }
+      td:nth-child(7) { width: 10%; }
+      td:nth-child(8) { width: 8%; }
+    }
+    thead {
+      tr {
+        td {
+          color: #657a8d;
+          font-weight: bold;
+          font-size: 16px;
+          padding: 15px 3px;
+          cursor: pointer;
+          user-select: none;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border-top: 1px solid #dae0e4;
+      }
+      td {
+        .avatar {
+          width: 80px;
+          height: 80px;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+      }
+      td:last-child {
+          font-size: 18px;
+          i {
+            margin: 0 5px;
+            cursor: pointer;
+          }
+        }
+    }
+  }
+}
