@@ -1,0 +1,44 @@
+ion-button {
+  --border-radius: 4px;
+  &.disabled{
+    --ion-color-success: #13ce9533;
+    --ion-color-success-contrast: #13ce9580;
+    pointer-events: none;
+  }
+}
+.fab-main{
+  right: 28px;
+  bottom: 28px;
+  .fab-button-wrap{
+    position: relative;
+    display: flex;
+    margin-top: 8px;
+    .label-fab-button{
+      position: absolute;
+      right: 65px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      text-align: right;
+      width: 110px;
+    }
+  }
+  ion-fab-button{
+    ion-icon{
+      font-size: 30px;
+    }
+  }
+  ion-fab-list{
+    ion-fab-button{
+      width: 48px;
+      height: 48px;
+      ion-icon{
+        font-size: 30px;
+      }
+    }
+  }
+
+}
+ion-back-button{
+  text-transform: capitalize !important;
+}

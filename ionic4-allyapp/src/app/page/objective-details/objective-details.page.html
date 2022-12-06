@@ -1,0 +1,192 @@
+<ion-header class="header-main header-details">
+  <ion-toolbar>
+    <ion-buttons slot="start" button-clear>
+      <ion-back-button class="btn-icon-custom" button-clear defaultHref="/tabs/tab1" (click)="back()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+    </ion-title>
+    <div class="header-right" style="width: 160px">
+      <ion-icon name="share-icon" class="icon-star" style="color: transparent"></ion-icon>
+      <ion-icon name="search" class="icon-search"></ion-icon>
+      <ion-icon name="more" class="icon-search" (click)="openMoreAction()"></ion-icon>
+      <!--<ion-searchbar class="icon-search" (ionInput)="search($event)"></ion-searchbar>-->
+    </div>
+  </ion-toolbar>
+</ion-header>
+<div class="backdrop" [hidden]="isFabOpen"></div>
+<ion-content class="page-content">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="fab-main">
+    <ion-fab-button color="success" (click)="openFabBtn()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <div class="fab-button-wrap">
+        <span class="label-fab-button">Leave a coment</span>
+        <ion-fab-button>
+          <ion-icon name="add" color="success"></ion-icon>
+        </ion-fab-button>
+      </div>
+      <div class="fab-button-wrap">
+        <span class="label-fab-button">Make a check-in</span>
+        <ion-fab-button>
+          <ion-icon name="add" color="success"></ion-icon>
+        </ion-fab-button>
+      </div>
+      <div class="fab-button-wrap">
+        <span class="label-fab-button">Add a key result</span>
+        <ion-fab-button>
+          <ion-icon name="check-in" color="success" style="font-size: 20px"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </ion-fab-list>
+  </ion-fab>
+  <div class="subheader-wrap" style="box-shadow: none">
+    <div class="sub-header-okrs flex-column-center pt-20 pb-10" *ngIf="dataSets && value !== undefined">
+      <app-chart-status [chartSize]="chartSize" [chartDataSets]="dataSets" [value]="value"></app-chart-status>
+      <p class="objective-name mt-20">{{objectiveDetail? objectiveDetail.title : ''}}</p>
+    </div>
+    <div class="sub-header-okrs flex-column-center pt-20 pb-10" *ngIf="!dataSets || value === undefined">
+      <ion-avatar slot="start" style="width: 84px;height: 84px">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <p class="objective-name mt-20" style="width: 50%;">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </p>
+    </div>
+    <div class="tabs-custom">
+      <ion-button class="btn-tab" [ngClass]="{active: tab == 0}" (click)="goToDetailsPage()">details</ion-button>
+      <ion-button class="btn-tab" [ngClass]="{active: tab == 1}" (click)="goToKeyResultPage()">key results</ion-button>
+      <ion-button class="btn-tab" [ngClass]="{active: tab == 2}" (click)="goToActivityPage()">activity</ion-button>
+    </div>
+  </div>
+
+  <div class="tab-animation details-page" [hidden]="tab != 0">
+    <!-- <div class="tab-animation details-page" *ngIf="tab == 0"> -->
+    <div class="alert status-objective"
+      [ngClass]="{warning: objectiveDetail?.indicator.color == colorMessage.orange && objectiveDetail?.indicator.inherited == false, danger: objectiveDetail?.indicator.color == colorMessage.red  && objectiveDetail?.indicator.inherited == false, 'message-nomal': (objectiveDetail?.indicator.color == colorMessage.orange || objectiveDetail?.indicator.color == colorMessage.red) && objectiveDetail?.indicator.inherited == true}"
+      *ngIf="objectiveDetail && objectiveDetail?.indicatorMessage?.length !== 0">
+      <p class="icon-status-message" *ngIf="objectiveDetail?.indicator.inherited == true"
+        [ngClass]="{'normal-danger':objectiveDetail?.indicator.color == colorMessage.red ,  normal: objectiveDetail?.indicator.color == colorMessage.orange}">
+      </p>
+      <p class="status-message"
+        [ngClass]="{'message-indicator' : (objectiveDetail?.indicator.color == colorMessage.orange && objectiveDetail?.indicator.inherited == false) || (objectiveDetail?.indicator.color == colorMessage.red  && objectiveDetail?.indicator.inherited == false), 'color-message-normal': objectiveDetail?.indicator.color == colorMessage.orange && objectiveDetail?.indicator.inherited == true,  'color-message-normal-danger': objectiveDetail?.indicator.color == colorMessage.red && objectiveDetail?.indicator.inherited == true}">
+        {{objectiveDetail?.indicatorMessage}}
+        <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores et, pariatur quisquam rem voluptatem voluptates. -->
+      </p>
+    </div>
+    <div class="list-objective-details" *ngIf="objectiveDetail">
+      <div class="item-details">
+        <p class="details-title">Description</p>
+        <p class="details-text">
+          {{objectiveDetail && objectiveDetail.description ? objectiveDetail.description: 'No Description'}}
+        </p>
+      </div>
+      <div class="item-details">
+        <p class="details-title">Tags</p>
+        <p class="details-tag">
+          <span class="tag-chip" *ngFor="let tag of objectiveDetail.tags_list"> {{tag.name}}</span>
+        </p>
+      </div>
+      <div class="item-details has-avatar" *ngIf="objectiveDetail && objectiveDetail.owner">
+        <p class="details-title">Owner</p>
+        <p class="details-text">{{getName(objectiveDetail.owner.id)}}</p>
+        <p class="details-delegate" *ngIf="objectiveDetail.delegation">via
+          {{getName(objectiveDetail.delegation.delegatee_id)}}
+        </p>
+        <div class="img-wrap avatar-container">
+          <span *ngIf="!getAvartar(objectiveDetail.owner.id)"
+            class="avatar-text">{{getName(objectiveDetail.owner.id)}}</span>
+          <img [src]="!getAvartar(objectiveDetail.owner.id)" onError="this.src='assets/images/no-avatar.png';" alt="..."
+            [hidden]="!getAvartar(objectiveDetail.owner.id)" />
+        </div>
+      </div>
+      <div class="item-details has-avatar">
+        <p class="details-title">Type</p>
+        <p class="details-text">{{type}}</p>
+        <div class="img-wrap">
+          <img *ngIf="type === typeObjective.company" src="assets/images/company-individual.png" />
+          <img *ngIf="type === typeObjective.individual" src="assets/images/owner.png" />
+          <img *ngIf="type === typeObjective.team" src="assets/images/team.png" />
+        </div>
+      </div>
+      <div class="item-details">
+        <p class="details-title">Last updated</p>
+        <p class="details-text">
+          {{objectiveDetail.latest_check_in? handleTimeUpdate(objectiveDetail.latest_check_in.updated_at) : 'No updates'}}
+        </p>
+      </div>
+      <div class="item-details">
+        <p class="details-title">When</p>
+        <p class="details-text">{{objectiveDetail.time_period.name + ' ( '+ quarter + ' )'}}</p>
+      </div>
+      <div class="item-details" *ngIf="objectiveDetail.current_metric.metric_type === typeKpi">
+        <p class="details-title">Goal</p>
+        <p class="details-text">
+          {{objectiveDetail.current_metric.name + ': ' + objectiveDetail.current_metric.target}}</p>
+      </div>
+      <div class="item-details">
+        <p class="details-title">Alignment
+          <span class="weight-pill"
+            *ngIf="objectiveDetail.parent && objectiveDetail.weight !== 1.0">{{objectiveDetail.weight}}x</span>
+        </p>
+
+
+        <!-- <p class="details-text item-link">
+            <span>Redesign our new landing page</span>
+            <ion-icon name="arrow-forward"></ion-icon>
+          </p> -->
+        <p *ngIf="alignment && alignment.length == 0"> Not aligned</p>
+        <div *ngIf="alignment && alignment.length != 0">
+          <div class="item-alignment" *ngFor="let alignmentDetail of alignment; index as i">
+            <div class="icon-wrap">
+              <ion-icon name="icon-arrow-top" class="icon"></ion-icon>
+            </div>
+            <!-- <app-avatar-user [imgSize]="imgSize" [imageAvatarParent]="objectiveDetail"></app-avatar-user> -->
+            <!-- <div class="avatar-container">
+                <img [src]="i.avatarUser" onError="this.src='assets/images/no-avatar.png';"  alt="..."/>
+              </div> -->
+            <app-avatar-user [imgSize]="imgSize" [imageAvatarCurrent]="getAvartar(alignmentDetail.owner.id)"
+              [nameAvatar]="getName(alignmentDetail.owner.id)"></app-avatar-user>
+            <div class="item-content">
+              <p class="title-alignment active" (click)="showAlignment(alignmentDetail)">{{alignmentDetail.title}}
+              </p>
+              <p class="text-alignment">{{handleDisplayTypeObjective(objectiveDetail.entity.type)}}</p>
+            </div>
+          </div>
+
+          <div class="item-alignment">
+            <div class="icon-wrap">
+              <ion-icon name="icon-arrow-top" class="icon"></ion-icon>
+            </div>
+            <app-avatar-user [imgSize]="imgSize" [imageAvatarCurrent]="getAvartar(objectiveDetail.owner.id)"
+              [nameAvatar]="getName(objectiveDetail.owner.id)"></app-avatar-user>
+            <div class="item-content">
+              <p class="title-alignment">{{objectiveDetail.title}}</p>
+              <p class="text-alignment">{{handleDisplayTypeObjective(objectiveDetail.entity.type)}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-animation activity-tab" [hidden]="tab != 2">
+    <!-- <div class="tab-animation activity-tab" *ngIf="tab == 2"> -->
+    <ion-list class="list-activity list-card-default" *ngFor="let activity of activitiesList">
+     <app-activity-detail [activity]="activity"></app-activity-detail>
+    </ion-list>
+    <div class="empty-box" *ngIf="activitiesList && activitiesList.length == 0">
+        <p class="key-results-empty">This objective does not have any activity, but there is activity on some of its key results. 
+          <span class="text-decoration" (click)="goToKeyResultPage()">View key results</span> </p>
+      </div>
+  </div>
+
+  <div class="tab-slide key-results-tab" [hidden]="tab != 1">
+    <!-- <div class="tab-slide key-results-tab" *ngIf="tab == 1"> -->
+    <app-objective-card [dataObjectiveCard]="keyResults" [showGroupName]="false"></app-objective-card>
+    <div class="empty-box" *ngIf="keyResults && keyResults.length == 0">
+      <p class="key-results-empty">This objective does not have any key results aligned to it. <span
+          class="text-decoration">Add a key results</span> </p>
+    </div>
+  </div>
+</ion-content>

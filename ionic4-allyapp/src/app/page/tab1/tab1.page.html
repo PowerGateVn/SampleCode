@@ -1,0 +1,175 @@
+<ion-header class="header-main header-fix" [appScrollHide]="headerScrollConfig" [scrollContent]="pageContent"
+  [subHeaderAbsorlute]="subHeaderAbsorlute" [subHeaderDirective]="subHeaderDirective">
+  <ion-toolbar class="toolbar">
+    <div class="header-left" (click)="goToProfile()" *ngIf="user">
+      <div class="avatar-container">
+        <span *ngIf="!user?.thumbnail_url" class="avatar-text">{{user.name}}</span>
+        <img [src]="user?.thumbnail_url" *ngIf="user.thumbnail_url" onError="this.src='assets/images/no-avatar.png';"
+          alt="..." />
+      </div>
+    </div>
+    <div class="header-left" *ngIf="!user">
+      <ion-avatar slot="start" style="height: 32px; width: 32px;">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+    </div>
+    <ion-title>
+      <ion-button (click)="modalQuarterDate()" fill="clear" class="btn-title">{{timePeriodSelected?.name}}</ion-button>
+    </ion-title>
+    <div class="header-right">
+      <ion-icon name="star" class="icon-star"></ion-icon>
+      <ion-icon name="search" class="icon-search"></ion-icon>
+      <!-- <ion-searchbar class="icon-search" (ionInput)="search($event)"></ion-searchbar> -->
+    </div>
+  </ion-toolbar>
+  <div class="tabs-custom hide-tab-sub-header" id="subHeaderAbsorlute" #subHeaderAbsorlute>
+    <ion-button class="btn-tab" [ngClass]="{'active': showMyOKRpage}" (click)="gotoMyOKRpage()">okrs
+    </ion-button>
+    <ion-button class="btn-tab" [ngClass]="{'active': !showMyOKRpage}" (click)="gotoActivityPage()">activity
+    </ion-button>
+  </div>
+</ion-header>
+<div class="backdrop" [hidden]="isFabOpen"></div>
+<ion-content id="ionContent" class="page-content" #pageContent fullscreen="false">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="fab-main">
+    <ion-fab-button color="success" (click)="openFabBtn()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <div class="fab-button-wrap">
+        <span class="label-fab-button">Add an objective</span>
+        <ion-fab-button>
+          <ion-icon name="add" color="success"></ion-icon>
+        </ion-fab-button>
+      </div>
+      <div class="fab-button-wrap">
+        <span class="label-fab-button">Add a KPI</span>
+        <ion-fab-button>
+          <ion-icon name="add" color="success"></ion-icon>
+        </ion-fab-button>
+      </div>
+      <div class="fab-button-wrap">
+        <span class="label-fab-button">Quick check-in</span>
+        <ion-fab-button>
+          <ion-icon name="check-in" color="success" style="font-size: 20px"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </ion-fab-list>
+  </ion-fab>
+  <div class="subheader-wrap">
+    <div class="sub-header-okrs">
+      <div class="row-user-description" *ngIf="teams.length > 0 && user">
+        <div class="avatar-container">
+          <span *ngIf="!user?.thumbnail_url" class="avatar-text">{{user.name}}</span>
+          <img [src]="user?.thumbnail_url" *ngIf="user?.thumbnail_url" onError="this.src='assets/images/no-avatar.png';"
+            alt="..." />
+        </div>
+        <p class="user-name">{{user.name}}</p>
+        <p class="user-job">{{teams}}</p>
+      </div>
+      <div class="custom-skeleton row-user-description" *ngIf="teams.length == 0 || !user">
+        <!-- <div class="custom-skeleton row-user-description"> -->
+        <ion-avatar slot="start" style="height: 78px; width: 78px;">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <p class="user-name" style="width: 30%; height: 23px;">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </p>
+        <p class="user-job" style="width:40%">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </p>
+      </div>
+      <div class="row-chart-status" *ngIf="chartOrksByStatus && chartAverageProgress">
+        <div class="chart-container">
+          <p class="chart-title">okrs by status</p>
+          <app-chart-status [chartSize]="chartOrksByStatus.chartSize" [chartDataSets]="chartOrksByStatus.chartDataSets"
+            [value]="chartOrksByStatus?.value"></app-chart-status>
+        </div>
+        <div class="chart-container middle">
+          <p class="chart-title">average progress</p>
+          <app-chart-status [chartSize]="chartAverageProgress.chartSize"
+            [chartDataSets]="chartAverageProgress.chartDataSets" [value]="chartAverageProgress?.value">
+          </app-chart-status>
+        </div>
+        <div class="chart-container pb-5">
+          <p class="chart-title">average score</p>
+          <!--change color score = class (good-score, warning-score, bad-score)-->
+          <div class="average-score" [ngStyle]="{'border-color': colorAvgScore, 'color': colorAvgScore }">
+            <span
+              class="score">{{objectiveSummary.average_score != undefined ? objectiveSummary.average_score : '-'}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="custom-skeleton row-chart-status" *ngIf="!chartOrksByStatus || !chartAverageProgress">
+        <!-- <div class="custom-skeleton row-chart-status"> -->
+        <div class="chart-container">
+          <p class="chart-title">okrs by status</p>
+          <ion-avatar slot="start" style="height: 68px; width: 68px;">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+        </div>
+        <div class="chart-container middle">
+          <p class="chart-title">average progress</p>
+          <ion-avatar slot="start" style="height: 68px; width: 68px;">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+        </div>
+        <div class="chart-container pb-5">
+          <p class="chart-title">average score</p>
+          <ion-avatar slot="start" style="height: 68px; width: 68px;">
+            <ion-skeleton-text animated style="border-radius: 4px;"></ion-skeleton-text>
+          </ion-avatar>
+        </div>
+      </div>
+
+    </div>
+    <div class="tabs-custom" #subHeaderDirective>
+      <ion-button class="btn-tab" [ngClass]="{'active': showMyOKRpage}" (click)="gotoMyOKRpage()">okrs
+      </ion-button>
+      <ion-button class="btn-tab" [ngClass]="{'active': !showMyOKRpage}" (click)="gotoActivityPage()">activity
+      </ion-button>
+    </div>
+  </div>
+  <div class="tab-animation" [hidden]="!showMyOKRpage">
+    <app-objective-card [dataObjectiveCard]="dataObjectiveCard" [showGroupName]="true" [titleDefault]="true">
+    </app-objective-card>
+  </div>
+
+  <div class="tab-animation empty-box" *ngIf="dataObjectiveCard && dataObjectiveCard.length == 0"
+    [hidden]="!showMyOKRpage">
+    <ion-text color="secondary" class="mt-20 mb-20">
+      Start adding objectives and key results
+    </ion-text>
+    <ion-button color="success" expand="block" class="font-14">
+      Create a new objective
+    </ion-button>
+    <ion-text color="success" class="mt-10 mb-10 bold font-14">
+      Or
+    </ion-text>
+    <ion-button color="success" expand="block" class="font-14">
+      See sample OKRs
+    </ion-button>
+    <div class="mt-30 ml-30 mr-30">
+      <p class="font-18 bold text-center mb-15 mt-30">Can't find what you're looking for?</p>
+      <p class="text-center font-14">You're currently only seeing objectives that are assigned to
+        {{timePeriodSelected?.name}}. You can change the time period to see other objectives.</p>
+    </div>
+    <ion-text color="success" class="pt-20 pb-20 bold font-14" (click)="modalQuarterDate()">
+      Change time period
+    </ion-text>
+  </div>
+
+
+  <div class="tab-animation activity-tab" [hidden]="showMyOKRpage">
+    <ion-list class="list-activity list-card-default" *ngFor="let activity of activities">
+          <app-activity-my-okrs [data]="activity"></app-activity-my-okrs>
+    </ion-list>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+  </div>
+
+</ion-content>

@@ -1,0 +1,69 @@
+.button-clear{
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  background-image: none;
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+.btn-default{
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  color: $white;
+  box-shadow: 10px 12px 15px 2px #e0dfdf;
+  font-weight: 600;
+}
+//.btn-link{
+//  text-decoration: underline;
+//  color: #00985F;
+//}
+.link{
+  color: #00985F;
+  text-decoration: underline;
+}
+//.bt
+// n-default{
+//  text-align: center;
+//  position: relative;
+//  display: inline-block;
+//  text-overflow: ellipsis;
+//  white-space: nowrap;
+//  cursor: pointer;
+//  vertical-align: top;
+//  vertical-align: -webkit-baseline-middle;
+//  transition: background-color, opacity 100ms linear;
+//  font-kerning: none;
+//  user-select: none;
+//  height: 2.8em;
+//  font-size: 1.6rem;
+//  color: #fff;
+//  background-color: #697994;
+//  margin: 0.4rem 0.2rem;
+//  padding: 0 1em;
+//  text-transform: uppercase;
+//}
+.btn-round{
+  height: 2.3em;
+  &[color = 'light']{
+    border: 1px solid $dark;
+    color: $dark;
+    .button-inner{
+      color: $dark;
+    }
+  }
+  &[color = 'dark']{
+    .button-inner{
+      color: $white;
+    }
+  }
+
+}
+.btn-green{
+  background: $high-green;
+  color: $white;
+}
+.btn-gray{
+  background: $dark-gray;
+  color: $white;
+}

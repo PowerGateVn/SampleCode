@@ -1,0 +1,44 @@
+You can choose SOLUTION 1 or SOLUTION 2 to deploy with docker
+
+************************************************* SOLUTION 1 *************************************************
+- Step 1:
+	Run command:
+	docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=PGpw2@2!' -p 1433:1433 --name mssql -v ag-sqldata:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2017-latest
+
+- Step 2:
+	Run command:
+	docker network inspect bridge
+	=> get ipadress (eg: 172.17.0.2)
+
+- Step 3:
+	Change connectionString to: 
+	"DefaultConnection": "Server=172.17.0.2; Database = AgedCare; User ID=sa; Password=PGpw2@2!;"
+
+- Step 4:
+	In the root folder project, run command
+	docker build -t agedcare -f AgedCare.API/Dockerfile .
+
+- Step 5:
+	Run command:
+	docker run -p 8082:80 --name ag-api agedcare
+
+************************************************* SOLUTION 2 *************************************************
+- Step 1:
+	Run command:
+	docker network create ag-network
+
+- Step 2:
+	Run command:
+	docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=PGpw2@2!' -p 1433:1433 --name mssql -h mssql --net=ag-network -v ag-sqldata:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2017-latest
+
+- Step 3:
+	Change connectionString to: 
+	"DefaultConnection": "Server=mssql; Database = AgedCare; User ID=sa; Password=PGpw2@2!;"
+
+- Step 4:
+	In the root folder project, run command
+	docker build -t agedcare -f AgedCare.API/Dockerfile .
+
+- Step 5:
+	Run command:
+	docker run -p 8082:80 --name ag-api --net=ag-network agedcare

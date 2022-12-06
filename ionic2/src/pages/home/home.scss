@@ -1,0 +1,21 @@
+page-home {
+  ion-content{
+    background-image: url("../assets/imgs/img-header.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  .main-content{
+    padding: 15px;
+  }
+  .title{
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
+  }
+  .list-product{
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+}

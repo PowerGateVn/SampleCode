@@ -1,0 +1,44 @@
+page-product-details {
+  ion-content.content{
+    background-image: url("../assets/imgs/img-footer.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-color: #f0f0f0;
+  }
+  .wrap-content{
+    height: 100%;
+    
+  }
+  .img-product{
+    height: 50%;
+    position: relative;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .icon-close{
+      position: absolute;
+      top: 40px;
+      right: 20px;
+      color: gray;
+      font-size: 32px;
+    }
+  }
+  .product-details{
+    padding: 30px;
+    .product-name{
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+    .description{
+      font-size: 20px;
+    }
+  }
+}
+.platform-android page-product-details .img-product .icon-close {
+  top:20px;
+}

@@ -1,0 +1,110 @@
+.pt-20{
+  padding-top: 20px !important;
+}
+.pr-15{
+  padding-right: 15px !important;
+}
+.pb-5{
+  padding-bottom: 5px !important;
+}
+.pb-10{
+  padding-bottom: 10px !important;
+}
+.pb-20{
+  padding-bottom: 20px !important;
+}
+.mt-10{
+  margin-top: 10px !important;
+}
+.mt-20{
+  margin-top: 20px !important;
+}
+.mt-30{
+  margin-top: 30px !important;
+}
+.mb-10{
+  margin-bottom: 10px !important;
+}
+.mb-15{
+  margin-bottom: 15px !important;
+}
+.mb-20{
+  margin-bottom: 20px !important;
+}
+
+.ml-30{
+  margin-left: 30px !important;
+}
+.mr-30{
+  margin-right: 30px !important;
+}
+
+.font-12{
+  font-size: 12px !important;
+}
+.font-14{
+  font-size: 14px !important;
+}
+
+.flex-row-center-start{
+  @include flex-row-center-start
+}
+.flex-column-center{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.backdrop{
+  position: absolute;
+  top: -80px;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  right: 0;
+  z-index: 99;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.page-content{
+  --background: #F5FAFF;
+}
+
+ion-back-button{
+  --color: #889aab;
+  --icon-font-size: 18px;
+  ion-icon{
+    color: #889aab;
+    font-size: 18px;
+  }
+  .button-text{
+    font-size: 16px;
+    color: #889aab;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100px;
+    padding: 5px;
+    text-transform: initial;
+    margin-left: 10px;
+  }
+}
+.slider-check-ins{
+  .swiper-pagination{
+    bottom: -25px !important;
+    .swiper-pagination-bullet{
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(17, 54, 90, 0.5);
+      opacity: 0.4;
+    }
+    .swiper-pagination-bullet-active{
+      background: #13CE95;
+      opacity: 1;
+    }
+  }
+}

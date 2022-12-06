@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Form {{form.name}}</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button icon="chevron-back-outline" text=""></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-content>
+            <formio src="{{ config.appUrl }}/{{ form.path }}"></formio>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

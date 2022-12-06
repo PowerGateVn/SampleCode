@@ -1,0 +1,11 @@
+
+.btn-primary {
+  background-color: rgb(255, 217, 0);
+  border-color: rgb(255, 217, 0);
+
+  &:hover,
+  &:focus {
+      background-color: rgb(255, 196, 0);
+      border-color: rgb(255, 196, 0);
+  }
+}

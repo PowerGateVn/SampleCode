@@ -1,0 +1,105 @@
+.activity-tab{
+  .list-activity{
+    margin: 16px;
+    --ion-background-color: transparent;
+    .item-activity{
+
+      --padding-start: 0;
+      --inner-padding-end: 0;
+      --inner-border-width: 0;
+      margin-bottom: 16px;
+      .item-content{
+        display: flex;
+        flex-direction: column;
+        background: #FFFFFF;
+        box-shadow: 0px 10px 20px rgba(174, 201, 228, 0.3);
+        border-radius: 8px;
+        padding: 24px;
+        padding-bottom: 10px;
+      }
+      .header-item{
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 10px;
+        align-items: flex-start;
+        justify-content: space-between;
+        .title-wrap{
+          .title{
+            font-size: 16px;
+            font-weight: bold;
+          }
+          .sub-title{
+            font-size: 10px;
+            color: #899AAB;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 8px;
+            span{
+              color: inherit;
+            }
+            .dot{
+              width: 3px;
+              height: 3px;
+              border-radius: 50%;
+              display: inline-block;
+              background: #899AAB;
+            }
+          }
+        }
+
+        .avatar-wrap{
+          width: 60px;
+          position: relative;
+          height: 35px;
+          &.multiple-avatar{
+            .avatar{
+              width: 20px;
+              height: 20px;
+              overflow: hidden;
+              border-radius: 50%;
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              position: absolute;
+              &:first-child{
+                top: 0;
+                right: 0;
+              }
+              &:last-child{
+                bottom: 0;
+                left: 0;
+              }
+
+            }
+          }
+          .avatar{
+            width: 32px;
+            height: 32px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+      .item-section{
+        border-top: 1px solid #E6EDF5;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        p{
+          font-size: 14px;
+          letter-spacing: -0.06px;
+        }
+        ion-icon{
+          color: transparent;
+        }
+      }
+    }
+
+  }
+}

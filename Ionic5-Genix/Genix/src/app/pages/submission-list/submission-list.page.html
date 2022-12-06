@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Submission {{submission}}</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button icon="chevron-back-outline" text=""></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="listSubmission && listSubmission.length > 0">
+    <ion-card *ngFor="let item of listSubmission; let idx = index">
+        <ion-card-header color="primary">
+            <div class="submission-list__header">Submission {{ idx + 1 }}</div>
+        </ion-card-header>
+        <ion-card-content>
+            <div class="submission-list__content">
+                <formio src="{{ config.appUrl }}/{{submission}}" [submission]="item"> </formio>
+            </div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
+<ion-content *ngIf="!listSubmission || listSubmission.length === 0">
+    <ion-card>
+        <ion-card-header>
+            No Submission
+        </ion-card-header>
+    </ion-card>
+</ion-content>

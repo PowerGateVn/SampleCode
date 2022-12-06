@@ -1,0 +1,46 @@
+.list-checkbox{
+  margin-top: 20px;
+  .checkbox-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    border-bottom: 0.55px solid #c8c7cc;
+    ion-icon{
+      font-size: 24px;
+      padding-right: 35px;
+      color: #697994;
+    }
+    &:first-child{
+      border-top: 0.55px solid #c8c7cc;
+    }
+    .checkbox-title{
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .checkbox-icon{
+      border-color: transparent;
+      &.checkbox-checked{
+        background: transparent;
+        border: transparent;
+        .checkbox-inner{
+          width: 8px;
+          height: 17px;
+          border-width: 2px;
+          border-top-width: 0;
+          border-left-width: 0;
+          border-style: solid;
+          border-color: $high-gray;
+        }
+      }
+    }
+    p{
+    }
+    ion-item{
+      width: 70px;
+    }
+    .item-inner{
+      border-bottom: none;
+    }
+  }
+}

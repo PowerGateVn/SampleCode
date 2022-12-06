@@ -1,0 +1,17 @@
+  .base-chart-container{
+    // width: 68px;
+    // height: 68px;
+    position: relative;
+  }
+  .number{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    &.chart-small{
+      font-size: 10px;
+    }
+  }
+

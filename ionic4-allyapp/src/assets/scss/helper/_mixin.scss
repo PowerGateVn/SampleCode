@@ -1,0 +1,29 @@
+@mixin flex-row-center-center{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flex-row-center-start{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+@mixin flex-column-center-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@mixin position-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin position-Ycenter{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

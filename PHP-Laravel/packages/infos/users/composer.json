@@ -1,0 +1,6 @@
+{
+    "name": "infos/users",
+    "description": "package of users",
+    "minimum-stability": "dev",
+    "require": {}
+}

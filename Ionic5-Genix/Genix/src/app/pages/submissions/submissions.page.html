@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Submissions</ion-title>
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list inset *ngFor="let item of listSubmissions" lines="inset">
+        <ion-item-divider (click)="onClick(item)">
+            <ion-label>{{item.title}} Form</ion-label>
+            <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+        </ion-item-divider>
+    </ion-list>
+</ion-content>

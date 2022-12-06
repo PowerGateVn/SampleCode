@@ -1,0 +1,33 @@
+service: send-email
+frameworkVersion: "3"
+
+custom:
+  accountId: 687450247901
+  resouceEmailSES: hao.nguyensong@powergatesoftware.com
+  kinesisSendEmailAction: "send-email-after-create-user-${sls:stage}"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Resource: "*"
+          Action:
+            - "kinesis:*"
+        - Effect: "Allow"
+          Resource: "*"
+          Action:
+            - "ses:*"
+  environment:
+    EMAIL_SOURCE_SES: ${self:custom.resouceEmailSES}
+
+plugins: ${file(../../serverless.common.yml):plugins}
+
+functions:
+  create:
+    handler: src/handlers/index.sendEmail
+    events:
+      - stream: arn:aws:kinesis:${self.provider.region}:${self:custom.accountId}:stream/${self:custom.kinesisSendEmailAction}

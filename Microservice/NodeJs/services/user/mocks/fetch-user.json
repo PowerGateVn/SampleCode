@@ -1,0 +1,8 @@
+{
+  "body": "{\"content\":\"hello world\",\"email\":\"ngocnv.57@gmail.com\",\"name\":\"z.@gmail.com\" }",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

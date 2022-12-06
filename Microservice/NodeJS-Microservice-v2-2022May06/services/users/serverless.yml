@@ -1,0 +1,60 @@
+service: users
+frameworkVersion: "3"
+
+custom:
+  tableName: "userss-table-${sls:stage}"
+  kinesisSendEmailAction: "send-email-after-create-user-${sls:stage}"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource:
+            - Fn::GetAtt: [UsersTable, Arn]
+  environment:
+    USER_TABLE: ${self:custom.tableName}
+    KINESIS_SEND_EMAIL_ACTION: ${self:custom.kinesisSendEmailAction}
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+functions:
+  create:
+    handler: src/handlers/index.create
+    events:
+      - http:
+          path: users
+          method: post
+
+  list:
+    handler: src/handlers/index.list
+    events:
+      - http:
+          path: users
+          method: get
+
+resources:
+  Resources:
+    UsersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: userId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: userId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.tableName}

@@ -1,0 +1,209 @@
+<ion-header class="header-main" >
+  <ion-toolbar>
+    <div class="header-left">
+      <div class="avatar-container">
+        <span *ngIf="!user.avatar_url" class="avatar-text">{{user.name}}</span>
+        <img [src]="user.avatar_url" *ngIf="user.avatar_url" onError="this.src='assets/images/no-avatar.png';"  alt="..."/>
+      </div>
+    </div>
+    <ion-title>
+      <ion-button (click)="modalQuarterDate()" fill="clear" class="btn-title">{{timePeriodSelected?.name}}</ion-button>
+    </ion-title>
+    <div class="header-right">
+      <ion-icon name="star" class="icon-star"></ion-icon>
+      <ion-icon name="search" class="icon-search"></ion-icon>
+      <!-- <ion-searchbar class="icon-search" (ionInput)="search($event)"></ion-searchbar> -->
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content" #pageContent>
+  <div [hidden]="!isActivityTab" class="activity-tab">
+    <ion-list class="list-activity">
+      <ion-item class="item-activity">
+        <div class="item-content">
+          <div class="header-item">
+            <div class="title-wrap">
+              <p class="title">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+              <p class="sub-title"><span>2 pepole</span> <span class="dot"></span> <span>apr 10 4:40 pm</span></p>
+            </div>
+            <div class="avatar-wrap multiple-avatar">
+              <div class="avatar">
+                <img src="assets/images/no-avatar.png"/>
+              </div>
+              <div class="avatar">
+                <img src="assets/images/no-avatar.png"/>
+              </div>
+            </div>
+          </div>
+          <div class="item-section">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, deleniti.</p>
+            <ion-icon name="next-icon"></ion-icon>
+          </div>
+          <div class="item-section">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, deleniti.</p>
+            <ion-icon name="next-icon"></ion-icon>
+          </div>
+        </div>
+
+      </ion-item>
+      <ion-item class="item-activity">
+        <div class="item-content">
+          <div class="header-item">
+            <div class="title-wrap">
+              <p class="title">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+              <p class="sub-title"><span>2 pepole</span> <span class="dot"></span> <span>apr 10 4:40 pm</span></p>
+            </div>
+            <div class="avatar-wrap">
+              <div class="avatar">
+                <img src="../../../assets/images/no-avatar.png"/>
+              </div>
+            </div>
+          </div>
+          <div class="item-section">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, deleniti.</p>
+            <ion-icon name="next-icon"></ion-icon>
+          </div>
+          <div class="item-section">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, deleniti.</p>
+            <ion-icon name="next-icon"></ion-icon>
+          </div>
+        </div>
+
+      </ion-item>
+      <ion-item class="item-activity">
+        <div class="item-content">
+          <div class="header-item">
+            <div class="title-wrap">
+              <p class="title">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+              <p class="sub-title"><span>2 pepole</span> <span class="dot"></span> <span>apr 10 4:40 pm</span></p>
+            </div>
+            <div class="avatar-wrap">
+              <div class="avatar">
+                <img src="../../../assets/images/no-avatar.png"/>
+              </div>
+            </div>
+          </div>
+          <div class="item-section">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, deleniti.</p>
+            <ion-icon name="next-icon"></ion-icon>
+          </div>
+          <div class="item-section">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, deleniti.</p>
+            <ion-icon name="next-icon"></ion-icon>
+          </div>
+          <div class="item-section">
+            <p>Create this objective</p>
+          </div>
+        </div>
+
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+  <div [hidden]="!isInfoTab" class="info-tab">
+    <ion-list class="list-member">
+      <p class="list-header">owner</p>
+      <ion-item>
+        <div class="item-member">
+          <div class="avatar-wrap">
+            <img src="assets/images/no-avatar.png"/>
+          </div>
+          <p class="item-label">Lorem ipsum dolor</p>
+          <ion-icon name="star" class="icon-star icon-right active"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="item-member">
+          <div class="avatar-wrap">
+            <img src="assets/images/no-avatar.png"/>
+          </div>
+          <p class="item-label">Lorem ipsum dolor</p>
+          <ion-icon name="star" class="icon-star icon-right active"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="item-member">
+          <div class="avatar-wrap">
+            <img src="assets/images/no-avatar.png"/>
+          </div>
+          <p class="item-label">Lorem ipsum dolor</p>
+          <ion-icon name="star" class="icon-star icon-right active"></ion-icon>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="list-member">
+    <p class="list-header">member</p>
+    <ion-item>
+      <div class="item-member">
+        <div class="avatar-wrap">
+          <img src="assets/images/no-avatar.png"/>
+        </div>
+        <p class="item-label">Lorem ipsum dolor</p>
+        <ion-icon name="star" class="icon-star icon-right active"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item-member">
+        <div class="avatar-wrap">
+          <img src="assets/images/no-avatar.png"/>
+        </div>
+        <p class="item-label">Lorem ipsum dolor</p>
+        <ion-icon name="star" class="icon-star icon-right active"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item-member">
+        <div class="avatar-wrap">
+          <img src="assets/images/no-avatar.png"/>
+        </div>
+        <p class="item-label">Lorem ipsum dolor</p>
+        <ion-icon name="star" class="icon-star icon-right active"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="item-member item-last">
+        <p class="text-green">See all members</p>
+      </div>
+    </ion-item>
+  </ion-list>
+
+    <ion-list class="list-member">
+      <p class="list-header">sub-teams</p>
+      <ion-item>
+        <div class="item-member">
+          <div class="avatar-wrap">
+            <img src="assets/images/team.png"/>
+          </div>
+          <p class="item-label">Lorem ipsum dolor</p>
+          <ion-icon name="star" class="icon-star icon-right active"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="item-member">
+          <div class="avatar-wrap">
+            <img src="assets/images/team.png"/>
+          </div>
+          <p class="item-label">Lorem ipsum dolor</p>
+          <ion-icon name="star" class="icon-star icon-right active"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="item-member">
+          <div class="avatar-wrap">
+            <img src="assets/images/team.png"/>
+          </div>
+          <p class="item-label">Lorem ipsum dolor</p>
+          <ion-icon name="star" class="icon-star icon-right active"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="item-member item-last">
+          <p class="text-green">See all sub-teams</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

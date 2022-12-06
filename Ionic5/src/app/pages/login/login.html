@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-logo">
+    <!-- <img src="assets/img/appicon.svg" alt="Ionic logo"> -->
+    <h2>{{ 'LOGIN.TITLE' | translate }}</h2>
+  </div>
+
+  <form #loginForm="ngForm" novalidate>
+    
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Name</ion-label>
+        <ion-input [(ngModel)]="login.name" name="name" placeholder="Eyad" type="text" #name="ngModel" spellcheck="false" autocapitalize="off"
+          required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p [hidden]="name.valid || submitted == false" class="ion-padding-start">
+          Name is required
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Phone Number (05XXXXXXXX)</ion-label>
+        <ion-input [(ngModel)]="login.phoneNumber" name="phoneNumber" placeholder="0555944201" type="tel" #phoneNumber="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p [hidden]="phoneNumber.valid || submitted == false" class="ion-padding-start">
+          Phone Number is required
+        </p>
+      </ion-text>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Login or signup</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+</ion-content>

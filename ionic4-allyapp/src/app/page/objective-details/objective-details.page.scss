@@ -1,0 +1,142 @@
+
+
+.message-indicator {
+  color: #fff;
+}
+
+.message-nomal {
+  background: #fff !important;
+  .color-message-normal{
+    margin: -2px 0px 0px 20px;
+    color: #FEAC41 !important;
+  }
+  .color-message-normal-danger{
+    margin: -2px 0px 0px 20px;
+    color: #EF6E6E !important;
+  }
+}
+
+.icon-status-message {
+  width: 8px; 
+  height: 8px; 
+  border: 2px solid #000; 
+  border-radius: 50%; 
+  position: absolute; 
+  display: block; 
+  left: 20px; 
+  // bottom: 366px; 
+  &.normal{
+    border: 2px solid #FEAC41 !important;
+  }
+
+  &.normal-danger{
+    border: 2px solid #EF6E6E !important;
+  }
+}
+.status-message{
+  margin:-2px 0px 0px 10px;
+}
+
+
+
+.item-alignment{
+  border-top: 1px solid #e6edf5;
+  display: flex;
+  align-items: flex-start;
+  padding: 16px 0;
+  position: relative;
+  app-avatar-user{
+    margin-top: 5px;
+  }
+  .icon-wrap{
+    position: absolute;
+    bottom: -10px;
+    left: -2px;
+    width: 30px;
+    z-index: 999;
+    background: white;
+    text-align: center;
+    .icon{
+      color: transparent;
+      font-size: 13px;
+      margin: 0;
+    }
+  }
+  .item-content{
+    margin-left: 15px;
+    .title-alignment{
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      &.active{
+        color: #13CE95;
+      }
+    }
+    .text-alignment{
+      font-size: 12px;
+      color: #899AAb;
+    }
+  }
+}
+.item-details .item-alignment:last-child{
+  .icon-wrap{
+    display: none;
+  }
+}
+
+
+.activity-tab{
+  .card-title{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    .title{
+      flex: 1
+    }
+  }
+  .card-content{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    .text-content{
+      border-left: 4px solid #D0DDEC;
+      padding-left: 10px;
+      border-radius: 2px;
+      letter-spacing: -0.06px;
+      font-size: 14px;
+      flex: 1;
+    }
+    ion-icon{
+      width: 32px;
+      color: #899AAB;
+    }
+    .row-count-commentlike{
+      margin-left: 13px;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+  }
+  .card-footer{
+
+  }
+}
+.weight-pill {
+  display: inline-block;
+  border: solid 1px #CBD0D6;
+  border-radius: 9px;
+  height: 16px;
+  padding: 0px 5px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  width: 40px;
+  text-align: center;
+  margin-left: 5px;
+}

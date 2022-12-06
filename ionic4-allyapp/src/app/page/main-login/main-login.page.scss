@@ -1,0 +1,24 @@
+ion-content{
+  --background: #f5faff;
+  .response-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .invalid {
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    color: red;
+
+  }
+  .success {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #31708f;
+  }
+}
+
+
+

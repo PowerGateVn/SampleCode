@@ -1,0 +1,9 @@
+apps:
+  - script: dist/server.js
+    name: "stump"
+    watch: ["dist"]
+    ignore_watch: ["node_modules", "dist/logs"]
+    env:
+      NODE_ENV: development
+    env_production:
+      NODE_ENV: production

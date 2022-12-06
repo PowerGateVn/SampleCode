@@ -1,0 +1,18 @@
+<ion-content>
+  <div class="main-content">
+    <p class="title">Cosa daresti da mangiare a tuo figlio?</p>
+    <ion-card class="list-product" *ngFor="let item of images; let i = index;" (click)="openModalProduct(item)">
+      <img src="{{item?.thumbUrl}}" />
+      <ion-card-content>
+        <ion-card-title>
+          {{item?.title}}
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

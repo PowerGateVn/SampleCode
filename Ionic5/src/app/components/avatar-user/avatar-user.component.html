@@ -1,0 +1,5 @@
+<div class="img-container" [ngStyle]="{'height': imgSize, 'width': imgSize }">
+  <span *ngIf="!imageAvatarCurrent" class="avatar-text">{{nameAvatar}}</span>
+  <img [src]="imageAvatarCurrent" onError="this.src='assets/images/no-avatar.png';" alt="..."
+    *ngIf="imageAvatarCurrent" />
+</div>

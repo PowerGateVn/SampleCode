@@ -1,0 +1,200 @@
+.wrap-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 2.5em;
+  color: $white;
+  @media (max-width: 320px) {
+    width: 50px;
+    height: 50px;
+  }
+  &.pink{
+
+  }
+  &.icon-sex{
+    background-color: $color-icon-sex-default;
+    &.male-active{
+      background: $color-icon-sex-male-active;
+    }
+    &.female-active{
+      background: $color-icon-sex-female-active;
+    }
+    &.kid-active{
+      background: $color-icon-sex-kid-active;
+    }
+  }
+  &.icon-main-login{
+    background-color: $bg-color-icon-main-login;
+  }
+}
+ion-icon {
+  &[class*="icon-shuffle"]{
+    background: url('../assets/icon/ios-shuffle-strong.png');
+    width: 24px;
+    height: 20px;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    padding: 0;
+  }
+  &[class*="icon-logout"]{
+    background: url('../assets/icon/log-out.png');
+    width: 28px;
+    height: 28px;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    padding: 0;
+  }
+  &[class*="sort"]{
+    background: url('../assets/icon/icon-sort.png');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 16px;
+    height: 10px;
+    margin-left: 10px;
+  }
+  &[class*="tab-icon-"]{
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    min-width: initial;
+
+  }
+  &[class*="tab-icon-home"]{
+    background: url('../assets/icon/tab-home-icon.png');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    min-width: initial !important;
+    width: 35px !important;
+    height: 30px  !important;
+  }
+  &[class*="tab-icon-home-active"]{
+    background: url('../assets/icon/tab-home-icon-active.png');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 35px !important;
+    height: 30px !important;
+    min-width: initial !important;
+  }
+  &[class*="tab-icon-biometry"]{
+    background: url('../assets/icon/tab-icon-biometry.png');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 32px  !important;
+    height: 32px  !important;
+    min-width: initial !important;
+
+  }
+  &[class*="tab-icon-biometry-active"]{
+    background: url('../assets/icon/tab-icon-biometry-active.png');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    min-width: initial !important;
+  }
+  &[class*="tab-icon-account"]{
+    background: url('../assets/icon/tab-icon-profile.png');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 22px !important;
+    height: 30px  !important;
+    min-width: initial !important;
+
+  }
+  &[class*="tab-icon-account-active"]{
+    background: url('../assets/icon/tab-icon-profile-active.png');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 22px;
+    height: 30px;
+    min-width: initial !important;
+  }
+  &[class*="icon-kid"]{
+    background: url('../assets/icon/icon-kid.png');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 35px;
+    height: 41px;
+    min-width: initial !important;
+    @media (max-width: 320px) {
+      width: 25px;
+      height: 33px;
+    }
+  }
+}
+.img-kid{
+  background: url('../assets/icon/icon-kid.png');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  width: 60px;
+  height: 45px;
+}
+.icon-ribbon{
+  display: inline-block;
+  background: url('../assets/icon/icon-ribbon.png');
+  width: 23px;
+  height: 29px;
+  background-size: cover;
+  background-position: center;
+}
+ion-icon {
+  &[class*="icon-shuffle"]{
+    background: url('../assets/icon/ios-shuffle-strong.png');
+    width: 24px;
+    height: 20px;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    padding: 0;
+  }
+  &[class*="icon-logout"]{
+    background: url('../assets/icon/log-out.png');
+    width: 28px;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    padding: 0;
+  }
+}

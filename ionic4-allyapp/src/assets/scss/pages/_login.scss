@@ -1,0 +1,83 @@
+.login-page{
+  &.login-bg{
+    background-image: url(/assets/images/bg-login.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    --background: transparent;
+  }
+  .bg-login{
+    background-image: url(/assets/images/login-bg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 277px;
+    z-index: 1;
+    @media screen and (min-width: 376px) {
+      height: 305px;
+    }
+  }
+  .logo{
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 30%;
+    margin-bottom: 50px;
+  }
+  .logo-main-login{
+    width: 30%;
+    margin-top: 30%;
+  }
+  .text-choose{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #88888c;
+    font-size: 14px;
+  }
+  .row-btn{
+    position: absolute;
+    bottom: 32px;
+    left:0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+  }
+  .row-other-login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .btn-icon{
+    border: 1px solid #d5e0e8;
+    border-radius: 4px;
+  }
+  .btn-sign-in{
+    width: 100%;
+    margin: 0;
+    z-index: 2;
+  }
+
+
+  ion-input.input-default{
+    --background: #FFFFFF;
+    border: 0.5px solid rgba(204, 218, 234, 0.5);
+    box-shadow: 0px 10px 20px rgba(174, 201, 228, 0.3);
+    border-radius: 4px;
+    height: 52px;
+    font-size: 14px;
+    --color: #333333;
+    letter-spacing: -0.06px;
+    --placeholder-color: #899AAB;
+    --placeholder-font-style: 14px;
+    --padding-start: 16px;
+  }
+}

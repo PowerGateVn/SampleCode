@@ -1,0 +1,116 @@
+service: users
+
+plugins:
+  - serverless-bundle
+  - serverless-offline
+
+custom: ${file(../../serverless.common.yml):custom}
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: ${self:custom.runtime}
+  stage: ${self:custom.stage}
+  region: ${self:custom.region}
+  tracing:
+    lambda: true
+  apiGateway:
+    restApiId:
+      "Fn::ImportValue": SharedGW-restApiId
+    restApiRootResourceId:
+      "Fn::ImportValue": SharedGW-rootResourceId
+
+  # These environment variables are made available to our functions
+  # under process.env.
+  environment:
+    stage: ${self:custom.stage}
+    resourcesStage: ${self:custom.resourcesStage}
+    tableName: User
+    region: ${self:custom.region}
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      # Restrict our IAM role permissions to
+      # the specific table for the stage
+      Resource: '*'
+    - Effect: Allow
+      Action:
+        - sns:Publish
+      Resource: '*'
+    - Effect: "Allow"
+      Resource: "*"
+      Action:
+        - "kinesis:*"
+
+functions:
+  # Defines an HTTP API endpoint that calls the main function in create.js
+  # - path: url path is /notes
+  # - method: POST request
+  # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
+  #     domain api call
+  # - authorizer: authenticate using the AWS IAM role
+  create:
+    handler: src/controllers/create.main
+    events:
+      - http:
+          path: users/
+          method: post
+          cors: true
+          # authorizer: aws_iam
+  createKinesis:
+    handler: src/controllers/create.mainKinesis
+    events:
+      - http:
+          path: users/kinesis
+          method: post
+          cors: true
+          # authorizer: aws_iam
+  fetchJson:
+    handler: src/controllers/fetchJson.main
+    events:
+      - http:
+          path: users/fetchJson
+          method: post
+          cors: true
+  handleJson:
+    handler: src/controllers/handleJson.main
+    events:
+      - stream:
+          type: kinesis
+          arn:
+            Fn::GetAtt:
+              - HandleJsonStream # CloudFormation reference defined below
+              - Arn
+resources:
+  # API Gateway Errors
+  # - ${file(../../resources/api-gateway-errors.yml)}
+  # Cognito Identity Pool Policy
+  # - ${file(resources/cognito-policy.yml)}
+  Resources:
+    CreatedUserTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: after-created-user-${self:custom.stage}
+    CreatedUserStream:
+      Type: AWS::Kinesis::Stream
+      Properties:
+        Name: data-receiver-${self:custom.stage}
+        ShardCount: 1
+    # Stream
+    HandleJsonStream:
+      Type: AWS::Kinesis::Stream
+      Properties:
+        Name: handle-user-json-${self:custom.stage}
+        ShardCount: 1
+
+

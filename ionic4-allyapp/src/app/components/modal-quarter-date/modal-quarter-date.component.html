@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <ion-button fill="clear" (click)="close()">
+    <ion-icon  slot="icon-only" name="close"></ion-icon>
+  </ion-button>
+  <p>Period</p>
+</div>
+<ion-list class="list-item">
+    <!-- <ion-datetime display-format="MM YYYY" id="dat" [(ngModel)]="myDate" (ionStyle)="showdate()"></ion-datetime> -->
+
+  <ion-item *ngFor="let timePeriod of timePeriods" [ngClass]="{'active' : timePeriod.id === timePeriodSelected.id}" 
+      button="true" type="button" detail="false" (click)="selectTimePeriod(timePeriod)">
+    <ion-label>{{timePeriod.name}}</ion-label>
+    <ion-icon name="checkmark" *ngIf="timePeriod.id === timePeriodSelected.id"></ion-icon>
+  </ion-item>
+</ion-list>
+

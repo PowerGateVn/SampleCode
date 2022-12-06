@@ -1,0 +1,14 @@
+<ion-content [fullscreen]="true" class="login__wrapper">
+    <div class="login__container">
+        <ion-card>
+            <ion-card-header color="primary">
+                <div class="login__header">Login</div>
+            </ion-card-header>
+            <ion-card-content>
+                <div class="login__content">
+                    <formio src="{{ config.appUrl }}/admin/login" (submit)="auth.onLoginSubmit($event)"></formio>
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

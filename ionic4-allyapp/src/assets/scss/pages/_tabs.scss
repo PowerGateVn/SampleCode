@@ -1,0 +1,25 @@
+.page-content{
+  --background: #f5faff;
+  .empty-text{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .empty-box{
+    @include flex-column-center-center;
+    padding: 16px;
+    ion-button{
+      letter-spacing: 1px;
+      width: 80%;
+    }
+    .key-results-empty{
+      text-align: center;
+      .text-decoration{
+        color: $green;
+        text-decoration: underline;
+      }
+    }
+  }
+
+}

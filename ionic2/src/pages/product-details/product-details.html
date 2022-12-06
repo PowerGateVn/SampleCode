@@ -1,0 +1,12 @@
+<ion-content>
+  <div class="wrap-content">
+    <div class="img-product">
+      <img src="{{productDetail?.imagesUrl}}" />
+      <ion-icon name="md-close-circle" class="icon-close" (click)="closeModal()"></ion-icon>
+    </div>
+    <div class="product-details">
+      <p class="product-name">{{productDetail?.title}}</p>
+      <p class="description">{{productDetail?.description}}</p>
+    </div>
+  </div>
+</ion-content>

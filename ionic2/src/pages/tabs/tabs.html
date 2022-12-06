@@ -1,0 +1,6 @@
+<ion-tabs #tabs (ionChange)="onIonChange()">
+    <ion-tab swipeBackEnabled="false" [root]="tab1Root"  ></ion-tab>
+    <ion-tab swipeBackEnabled="false" [root]="tab2Root"></ion-tab>
+</ion-tabs>
+
+<tutorial *ngIf="tutorialVisible" (endChange)="onTutorialEnd($event)" [@fadeInOut]></tutorial>

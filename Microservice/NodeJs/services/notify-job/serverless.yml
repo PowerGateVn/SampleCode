@@ -1,0 +1,40 @@
+service: sns-job
+
+plugins:
+  - serverless-bundle
+
+custom: ${file(../../serverless.common.yml):custom}
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: ${self:custom.runtime}
+  stage: ${self:custom.stage}
+  region: ${self:custom.region}
+  environment:
+    stage: ${self:custom.stage}
+    resourcesStage: ${self:custom.resourcesStage}
+  tracing:
+    lambda: true
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - sns:Publish
+      Resource: '*'
+    - Effect: "Allow"
+      Resource: "*"
+      Action:
+        - "kinesis:*"
+
+functions:
+  sendsms:
+    handler: notify.main
+    events:
+      - sns: arn:aws:sns:${self:provider.region}:${self:custom.accountId}:after-created-user-${self:custom.stage}
+  sendsmsviakinesis:
+    handler: notify.kinesis
+    events:
+      - stream: arn:aws:kinesis:${self:provider.region}:${self:custom.accountId}:stream/data-receiver-${self:custom.stage}

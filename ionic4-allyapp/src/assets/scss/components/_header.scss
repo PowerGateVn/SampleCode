@@ -1,0 +1,222 @@
+
+.header-main{
+  &.header-details{
+    ion-back-button{
+      button.button-native{
+        padding-left: 0;
+        --padding-start: 0;
+        width: 130px;
+        margin: auto;
+        --padding-end: 0;
+      }
+    }
+  }
+  .btn-icon-custom{
+    padding-left: 10px;
+    ion-icon{
+      color: transparent;
+      font-size: 18px;
+    }
+  }
+
+  .header-left{
+    position: absolute;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    top: 0;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+  }
+  ion-title{
+    letter-spacing: -0.41px;
+    .btn-title{
+      margin: 0;
+      border: 1px solid #E6EDF5;
+      height: 28px;
+      border-radius: 14px;
+      color: $dark;
+      font-size: 14px;
+    }
+  }
+  .header-right{
+    position: absolute;
+    right: 0;
+    width: 90px;
+    height: 100%;
+    top: 0;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    ion-icon{
+      font-size: 26px;
+      color: #899AAB;
+      padding: 10px;
+      &.icon-star{
+        &.active{
+          color: #FED241;
+        }
+      }
+      &.icon-search{
+        padding-right: 16px;
+      }
+    }
+  }
+  .toolbar {
+    --border-width: 0 0 0.55px;
+  }
+}
+// .ios .hide-header {
+//   padding-bottom: var(--ion-safe-area-top,0);
+// }
+.hide-header {
+  padding-bottom: var(--ion-safe-area-top,0);
+}
+
+.subheader-wrap{
+  box-shadow: 0px 10px 20px rgba(174, 201, 228, 0.3);
+  background: white;
+}
+.sub-header-okrs{
+  background: white;
+  padding-left: 16px;
+  padding-right: 16px;
+  .row-user-description{
+    @include flex-column-center-center;
+    padding: 25px;
+    .avatar-container{
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #bdc3c7;
+      background: #bdc3c7;
+
+      .avatar-text{
+        color: white;
+        font-size: 0;
+      }
+      .avatar-text:first-letter {
+        font-size: 40px;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .user-name{
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+    .user-job{
+      font-size: 14px;
+    }
+
+  }
+  .objective-name{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+  }
+}
+.row-chart-status{
+  @include flex-row-center-center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-top: 1px solid $gray;
+  border-bottom: 1px solid $gray;
+  margin: 0 16px;
+  .chart-container{
+    flex: 1;
+    @include flex-column-center-center;
+    padding: 0 10px;
+    justify-content: space-between;
+    height: 100px;
+    &.middle{
+      border-left: 1px solid #E6EDF5;
+      border-right: 1px solid #E6EDF5;
+    }
+    .chart-title{
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: $darkgray;
+      margin-bottom: 10px;
+      font-weight: bold;
+      width: 80px;
+    }
+    .average-score{
+      border: 2px solid #FEAC41;
+      border-radius: 4px;
+      width: 60px;
+      height: 60px;
+      @include flex-row-center-center;
+      .score{
+        font-size: 14px;
+        font-weight: bold;
+        color: inherit;
+      }
+      &.good-score{
+        border-color: $chart-green;
+        color: $chart-green;
+      }
+      &.warning-score{
+        border-color: $chart-orange;
+        color: $chart-orange;
+      }
+      &.bad-score{
+        border-color: $chart-red;
+        color: $chart-red;
+      }
+    }
+  }
+}
+.header-fix {
+  height: 44px;
+}
+
+
+.avatar-container{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #bdc3c7;
+  background: #bdc3c7;
+  .avatar-text{
+    color: white;
+    font-size: 0;
+  }
+  .avatar-text:first-letter {
+    font-size: 22px;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.sc-ion-loading-ios-h {
+  --background: var(--ion-color-step-50); 
+  --max-width: 270px;
+  --max-height: 90%;
+  --spinner-color: var(--ion-color-step-600,#666);
+  color: var(--ion-text-color,#000);
+  font-size: 14px;
+}
+
+ 

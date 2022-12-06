@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgedCare.API", "AgedCare.API\AgedCare.API.csproj", "{D20CD64F-D354-4D05-9086-7A3C582E5A80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3F47CD48-C58F-4B7A-865A-AD9755D0E373}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EAEE6AB4-1E3B-4D78-BD86-6CAC663FFE18}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgedCare.Domain", "AgedCare.Domain\AgedCare.Domain.csproj", "{64C2B751-E153-41CD-A5CD-5CD9E043FA59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgedCare.Infrastructure", "AgedCare.Infrastructure\AgedCare.Infrastructure.csproj", "{021C5A25-6CCF-410A-B19A-72ED663C9D2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgedCare.Application", "AgedCare.Application\AgedCare.Application.csproj", "{1CB4DD21-E077-4D6F-92CB-E0D74B4B422D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgedCare.Tests", "AgedCare.Tests\AgedCare.Tests.csproj", "{D6D5C5E7-5AC9-4BEF-A468-28A51DFCEF97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{73784271-5113-47EC-9AF3-B3B390F78765}"
+	ProjectSection(SolutionItems) = preProject
+		Instruction.txt = Instruction.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D20CD64F-D354-4D05-9086-7A3C582E5A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D20CD64F-D354-4D05-9086-7A3C582E5A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D20CD64F-D354-4D05-9086-7A3C582E5A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D20CD64F-D354-4D05-9086-7A3C582E5A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C2B751-E153-41CD-A5CD-5CD9E043FA59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C2B751-E153-41CD-A5CD-5CD9E043FA59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C2B751-E153-41CD-A5CD-5CD9E043FA59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C2B751-E153-41CD-A5CD-5CD9E043FA59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{021C5A25-6CCF-410A-B19A-72ED663C9D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021C5A25-6CCF-410A-B19A-72ED663C9D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021C5A25-6CCF-410A-B19A-72ED663C9D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021C5A25-6CCF-410A-B19A-72ED663C9D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB4DD21-E077-4D6F-92CB-E0D74B4B422D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB4DD21-E077-4D6F-92CB-E0D74B4B422D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB4DD21-E077-4D6F-92CB-E0D74B4B422D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB4DD21-E077-4D6F-92CB-E0D74B4B422D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6D5C5E7-5AC9-4BEF-A468-28A51DFCEF97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6D5C5E7-5AC9-4BEF-A468-28A51DFCEF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6D5C5E7-5AC9-4BEF-A468-28A51DFCEF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6D5C5E7-5AC9-4BEF-A468-28A51DFCEF97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D20CD64F-D354-4D05-9086-7A3C582E5A80} = {3F47CD48-C58F-4B7A-865A-AD9755D0E373}
+		{64C2B751-E153-41CD-A5CD-5CD9E043FA59} = {3F47CD48-C58F-4B7A-865A-AD9755D0E373}
+		{021C5A25-6CCF-410A-B19A-72ED663C9D2C} = {3F47CD48-C58F-4B7A-865A-AD9755D0E373}
+		{1CB4DD21-E077-4D6F-92CB-E0D74B4B422D} = {3F47CD48-C58F-4B7A-865A-AD9755D0E373}
+		{D6D5C5E7-5AC9-4BEF-A468-28A51DFCEF97} = {EAEE6AB4-1E3B-4D78-BD86-6CAC663FFE18}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0990847F-D777-4E2A-A963-CB9B68AC5511}
+	EndGlobalSection
+EndGlobal

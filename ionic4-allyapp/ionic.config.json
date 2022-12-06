@@ -1,0 +1,14 @@
+{
+  "name": "allyApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "c953ea09",
+  "proxies": [
+    {
+      "path": "/oauth/token",
+      "proxyUrl": "https://sandbox.gotoally.com/oauth/token"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+.subheader-wrap{
+  box-shadow: none;
+}
+.activity-tab{
+  .card-title{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    .title{
+      flex: 1
+    }
+  }
+  .card-content{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    .text-content{
+      border-left: 4px solid #D0DDEC;
+      padding-left: 10px;
+      border-radius: 2px;
+      letter-spacing: -0.06px;
+      font-size: 14px;
+      flex: 1;
+    }
+    ion-icon{
+      width: 32px;
+      color: #899AAB;
+    }
+    .row-count-commentlike{
+      margin-left: 13px;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+  }
+  .card-time-update{
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #899AAB;
+
+    .icon{
+    border: 2px solid #899AAB;
+    border-radius: 50%;
+    padding: 0px;
+    margin: 0px 8px;
+    position: inherit;
+    display: inline-block;
+    }
+  }
+}

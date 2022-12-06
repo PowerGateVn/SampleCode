@@ -1,0 +1,57 @@
+.text-input-wrong{
+  font-size: 12px;
+  margin-top: 5px;
+  color: $danger;
+}
+
+ion-input{
+  &.input-with-icon{
+    position: relative;
+    --padding-end: 40px;
+    ion-icon{
+      font-size: 22px;
+      position: absolute;
+      padding: 10px;
+      z-index: 99;
+      color: rgba(17, 54, 90, 0.5);
+    }
+    &.right{
+      ion-icon{
+        right: 0;
+      }
+    }
+  }
+}
+
+.input-with-icon{
+  background: #FFFFFF;
+  border: 0.5px solid rgba(204, 218, 234, 0.5);
+  box-shadow: 0px 10px 20px rgba(174, 201, 228, 0.3);
+  border-radius: 4px;
+  height: 52px;
+  font-size: 14px;
+  color: #333333;
+  position: relative;
+  padding-right: 40px;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  ion-input{
+    flex: 1;
+    height: 100%;
+    --placeholder-color: #899AAB;
+    --placeholder-font-style: 14px;
+    font-size: 14px;
+    --color: #333333;
+  }
+  ion-icon{
+    font-size: 22px;
+    position: absolute;
+    padding: 10px;
+    z-index: 99;
+    color: rgba(17, 54, 90, 0.5);
+    right: 0;
+    width: 40px;
+  }
+}

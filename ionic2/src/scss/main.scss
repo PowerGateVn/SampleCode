@@ -1,0 +1,47 @@
+//helper
+@import "helper/variables";
+@import "helper/mixin";
+//components
+
+@import "components/custom-class";
+@import "components/button";
+@import "components/icon";
+@import "components/header";
+@import "components/menu";
+@import "components/form";
+@import "components/list";
+// page
+@import "pages/profile-page";
+
+//media
+
+
+
+
+*{
+  font-family: 'Lato', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: normal;
+}
+p{
+  margin: 0;
+}
+.danger{
+  color: $red;
+}
+.bg-avatar{
+  &.male{
+    background: $male;
+  }
+  &.female{
+    background: $female;
+  }
+  &.kid{
+    background: $kid;
+  }
+}
+.has-refresher > .scroll-content{
+  border-top: none;
+}

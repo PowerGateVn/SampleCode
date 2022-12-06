@@ -1,0 +1,58 @@
+@mixin position-center-vertical{
+  top: 50%;
+  transform: translateY(-50%) !important;
+  position: absolute;
+}
+@mixin position-center-horizontal{
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+@mixin position-center{
+  position: absolute;
+  top: 50% !important;
+  left: 50% !important;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+@mixin text-elipxis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@mixin flex-center{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin padding-vertical($left, $right){
+  padding-left: $left;
+  padding-right: $right;
+}
+@mixin flex-around{
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around;
+}
+@mixin placeholder($color-placeholder, $font-size){
+  &:-ms-input-placeholder{
+    color: $color-placeholder;
+    font-size: $font-size;
+  }
+  &::-webkit-input-placeholder{
+    color: $color-placeholder;
+    font-size: $font-size;
+  }
+  &:-moz-placeholder{
+    color: $color-placeholder;
+    font-size: $font-size;
+  }
+  &::-moz-placeholder{
+    color: $color-placeholder;
+    font-size: $font-size;
+  }
+}

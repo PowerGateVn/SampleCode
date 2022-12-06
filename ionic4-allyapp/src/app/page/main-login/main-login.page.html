@@ -1,0 +1,64 @@
+<ion-content padding forceOverscroll="false" class="login-page"
+             [ngClass]="{'login-bg': showSignIn}">
+
+  <img src="assets/images/logo.png" class="logo " [ngClass]="{'logo-main-login': !showSignIn}"/>
+  <p class="response-message invalid" *ngIf="messageInactive">{{messageInactive}}</p>
+
+
+
+  <div class="row-btn" *ngIf="showSignIn">
+    <ion-button color="success" expand="block" class="btn-sign-in" (click)="SignIn()" >Sign in</ion-button>
+
+    <p class="text-choose">Or, login using</p>
+
+    <div class="row-other-login" >
+      <ion-button color="medium" fill="outline" class="btn-sign-in" style="width: 80%">SAML SSO</ion-button>
+      <ion-button color="light" fill="outline" class="btn-icon" (click)="signInWithGoogle()">
+        <ion-icon slot="icon-only" name="google"></ion-icon>
+      </ion-button>
+      <ion-button color="light" fill="outline" class="btn-icon">
+        <ion-icon slot="icon-only" name="slack"></ion-icon>
+      </ion-button>
+    </div>
+
+  </div>
+  <div [hidden]="showSignIn">
+      <p class="response-message invalid" *ngIf="messageInvalid">{{messageInvalid}}</p>
+      <p class="response-message success" *ngIf="messageSuccess">{{messageSuccess}}</p>
+      <form [formGroup]="formLogin" >
+        <div class="form-email" *ngIf="!hideInputEmail" >
+          <ion-input type="email" formControlName="email" class="input-default" placeholder="Enter your email address"> </ion-input>
+          <p class="text-input-wrong"
+            *ngIf="formLogin.get('email').touched && hideInputPassword">{{messageErr}}</p>
+        </div>
+    
+        <div class="form-password" *ngIf="!hideInputPassword">
+          <div class="input-with-icon">
+            <ion-input [type]="passwordType" formControlName="password" placeholder="Enter your password">
+            </ion-input>
+            <ion-icon item-right slot="end" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+          </div>
+          <p class="text-input-wrong" *ngIf="formLogin.get('email').touched && !hideInputPassword && hideInputEmail">{{messageErr}}</p>
+    
+    
+          <!-- <p class="text-input-wrong">Email password</p> -->
+    
+          <ion-button fill="clear" color="success" expand="block"  (click)="forgotPassword()" [disabled]="disableClickForgotPassword"> 
+            Forgot your password?
+          </ion-button>
+        </div>
+        <div class="row-btn">
+          <ion-button *ngIf="hideInputPassword" color="success" expand="block" class="btn-sign-in"
+                      [disabled]="!displayBtnConnect" (click)="nextPassword()">
+            Next
+          </ion-button>
+          <ion-button *ngIf="hideInputEmail || (!hideInputEmail && !hideInputPassword)" color="success" expand="block" class="btn-sign-in"
+                      [disabled]="!displayBtnConnect" (click)="login()">
+            Next
+          </ion-button>
+        </div>
+
+      </form>
+  </div>
+
+</ion-content>
