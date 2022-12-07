@@ -1,0 +1,14 @@
+{
+  "workbench.iconTheme": "vscode-icons",
+  "vsicons.dontShowNewVersionMessage": true,
+  "explorer.confirmDragAndDrop": false,
+  "editor.minimap.enabled": false,
+  "explorer.confirmDelete": false,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "files.associations": { "*.ts": "typescriptreact" },
+  "workbench.panel.defaultLocation": "bottom"
+}

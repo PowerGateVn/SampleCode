@@ -1,0 +1,75 @@
+.header-fixed {
+	position: fixed;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	color: @white;
+	width: 100%;
+	box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+
+	.logo {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	.trigger {
+		display: flex;
+		align-items: center;
+		margin-left: 16px;
+		font-size: 20px;
+	}
+
+	.space {
+		flex: 1 1 0%;
+	}
+
+	.bell {
+		position: relative;
+		cursor: pointer;
+		padding: 0 12px;
+
+		&:hover {
+			background-color: @dark-hover;
+		}
+
+		.bell-icon {
+			color: @white;
+			font-size: 16px;
+			position: relative;
+			bottom: -3px;
+		}
+
+		.bell-badge {
+			position: absolute;
+			top: 8px;
+			left: 20px;
+
+			sup {
+				font-size: 11px;
+				padding-top: 1px;
+
+				span {
+					span {
+						margin-left: -1px;
+					}
+				}
+			}
+		}
+	}
+
+	.user-setting {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		padding: 0 8px;
+
+		&:hover {
+			background-color: @dark-hover;
+		}
+
+		div {
+			margin-left: 8px;
+		}
+	}
+}

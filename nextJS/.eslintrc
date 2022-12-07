@@ -1,0 +1,71 @@
+{
+	"parserOptions": {
+		"project": ["tsconfig.json"]
+	},
+	"extends": ["airbnb-typescript", "next", "next/core-web-vitals"],
+	"plugins": ["import", "react", "unused-imports", "simple-import-sort"],
+	"rules": {
+		"comma-dangle": ["error", "always-multiline"],
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
+		"react-hooks/exhaustive-deps": "off",
+		"@typescript-eslint/indent": ["error", "tab"],
+		"max-len": [
+			"error",
+			{
+				"code": 100,
+				"tabWidth": 2,
+				"ignoreComments": true,
+				"ignoreUrls": true
+			}
+		],
+		"no-tabs": ["error", { "allowIndentationTabs": true }],
+		"no-unused-vars": [
+			"error",
+			{
+				"vars": "all",
+				"args": "none",
+				"ignoreRestSiblings": true
+			}
+		],
+		"quotes": ["error", "single"],
+		"semi": ["error", "always"],
+		"unused-imports/no-unused-imports": "error",
+
+		// simple import rules
+		"simple-import-sort/exports": "error",
+		"simple-import-sort/imports": [
+			"error",
+			{
+				"groups": [
+					["^react.*", "^next.*", "^(?!src|.?./|.+\\.(s?css|less)$).*"],
+					["^src"],
+					["^\\.\\.(?!/?$)", "^\\.\\./?$", "^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+					["^.+\\.(s?css|less)$"]
+				]
+			}
+		]
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".android.js", ".ios.js", ".tsx"],
+				"paths": ["./"]
+			}
+		}
+	},
+	"globals": {
+		"chrome": true,
+		"fetch": true,
+		"FormData": true,
+		"document": true,
+		"window": true
+	}
+}

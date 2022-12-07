@@ -1,0 +1,18 @@
+{
+  "presets": [
+      "react-native",
+      "react-native-stage-0/decorator-support"
+  ],
+  "plugins": [
+      ["module-resolver", {
+          "root": ["."],
+          "extensions": [".js", ".ios.js", ".android.js"],
+          "alias": {
+              "~app": "E:/workspace/PG-Project/ReactNative/src"
+          }
+      }],
+      ["transform-strict-mode", {
+          "strict": false
+      }]
+  ]
+}

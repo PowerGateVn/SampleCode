@@ -1,0 +1,18 @@
+{
+  "apps": [
+    {
+      "script": "index.js",
+      "name": "Bitwage",
+      "exec_mode": "cluster",
+      "instances": 0,
+      "error_file": "./logs/bitwage-production-error.log",
+      "out_file": "./logs/bitwage-production-out.log",
+      "log_date_format": "DD-MM-YYYY HH:mm Z",
+      "merge_logs": true,
+      "env": {
+        "PORT": 3000
+      },
+      "watch": ["./dist"]
+    }
+  ]
+}

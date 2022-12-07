@@ -1,0 +1,24 @@
+.container {
+	min-height: 100vh;
+
+	.layout-body {
+		margin-top: @layout-header-height;
+
+		.layout-content {
+			transition: all 0.2s;
+
+			main {
+				margin: 24px;
+			}
+		}
+
+		.sider-fixed {
+			position: fixed;
+			left: 0;
+			height: calc(100vh - 88px);
+			overflow: auto;
+			background-color: @white;
+			box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
+		}
+	}
+}
